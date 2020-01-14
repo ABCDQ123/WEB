@@ -141,7 +141,7 @@ public class ReadActivity extends AppCompatActivity implements ViewPager.OnPageC
         adapter = new ComicViewPagerAdapter(items);
         vp_comic_read_activity.setAdapter(adapter);
         vp_comic_read_activity.addOnPageChangeListener(this);
-        vp_comic_read_activity.setOffscreenPageLimit(10);
+        vp_comic_read_activity.setOffscreenPageLimit(12);
         tv_comicepisode_comic_read_activity.setText("????/????");
 
         clientCurrent = new KiKyoReadClient(this, mEpisodes.get(mEpisode).getLink(), mWebBean.getRead(), this);
