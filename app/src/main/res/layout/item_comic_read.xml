@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="正在加载"
+        android:textColor="@color/gray2"
+        android:textSize="12sp"></TextView>
+
+    <me.relex.photodraweeview.PhotoDraweeView
+        android:id="@+id/pv_item_comic_read"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_fail_item_comic_read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/square_bg_gray"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="15dp"
+        android:text="加载失败  点击重新加载"
+        android:textColor="@color/gray2"
+        android:textSize="13sp"
+        android:visibility="gone"></TextView>
+</FrameLayout>

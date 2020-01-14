@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ig_image_item_comic_info"
+        android:layout_width="125dp"
+        android:layout_height="167dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/gray_little"></ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="167dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title_item_comic_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="憨批炮姐"
+            android:textColor="@color/txt_black"
+            android:textSize="16sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_author_item_comic_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="作者：憨批炮姐"
+            android:textColor="@color/txt_gray"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_type_item_comic_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="类型：吹牛"
+            android:textColor="@color/txt_gray"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_pop_item_comic_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="人气：0"
+            android:textColor="@color/txt_gray"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_status_item_comic_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="状态：连载33"
+            android:textColor="@color/txt_gray"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_time_item_comic_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="更新日期：2020-3-25"
+            android:textColor="@color/txt_gray"
+            android:textSize="13sp"></TextView>
+    </LinearLayout>
+
+</LinearLayout>

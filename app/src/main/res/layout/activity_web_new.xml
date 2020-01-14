@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.WebNewActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/ig_finish_webnew_activity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="6dp"
+            android:padding="12dp"
+            android:src="@drawable/abc_vector_test"></ImageView>
+
+        <TextView
+            android:id="@+id/ig_sure_webnew_activity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="14sp"></TextView>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_content_webnew_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@color/white"
+        android:gravity="left|top"
+        android:textSize="14sp"></EditText>
+
+</LinearLayout>

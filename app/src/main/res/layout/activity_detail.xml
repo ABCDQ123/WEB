@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.activity.DetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_toolbar_comic_detail_activity"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/ig_finish_comic_detail_activity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
+            android:padding="12dp"
+            android:src="@drawable/abc_vector_test"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_title_comic_detail_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="漫画名"
+            android:textColor="@color/white"
+            android:textSize="16sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_collect_comic_detail_activity"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="收藏"
+            android:textColor="@color/white"
+            android:textSize="16sp"></TextView>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_comic_detail_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"></androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

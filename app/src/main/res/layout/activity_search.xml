@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_search_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.activity.SearchActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_toolbar_search_activity"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/ig_finish_search_activity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
+            android:padding="12dp"
+            android:src="@drawable/abc_vector_test"></ImageView>
+
+        <EditText
+            android:id="@+id/et_search_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:hint="搜索漫画、作者..."
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/txt_gray"
+            android:textCursorDrawable="@drawable/et_cursor"
+            android:textSize="15sp"></EditText>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:overScrollMode="never"></androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

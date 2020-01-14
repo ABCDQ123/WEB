@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.activity.ReadActivity">
+
+    <com.comic.mario.util.eventview.TouchView
+        android:id="@+id/v_touch_comic_read_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.comic.mario.util.viewpager.ComicViewPager
+            android:id="@+id/vp_comic_read_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"></com.comic.mario.util.viewpager.ComicViewPager>
+    </com.comic.mario.util.eventview.TouchView>
+
+    <LinearLayout
+        android:id="@+id/ll_sysyteminfo_comic_read_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:orientation="horizontal"
+        android:paddingRight="4dp"
+        android:paddingBottom="4dp">
+
+        <TextView
+            android:id="@+id/tv_comicepisode_comic_read_activity"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:ellipsize="middle"
+            android:gravity="right"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="12sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_pagenumber_comic_read_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="12sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_sysytemtime_comic_read_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="12sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_sysytembattery_comic_read_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="12sp"></TextView>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_topview_comic_read_activity"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/gray">
+
+        <ImageView
+            android:id="@+id/ig_finish_comic_read_activity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="1dp"
+            android:padding="13dp"
+            android:src="@drawable/abc_vector_test"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_comicname_comic_read_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="20dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:text="漫画名"
+            android:textColor="@color/white"
+            android:textSize="15sp"></TextView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bottomview_comic_read_activity"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:background="@color/gray"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_comics_comic_read_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="3dp"
+                android:src="@drawable/mulu"></ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="目录"
+                android:textColor="@color/white"
+                android:textSize="13sp"></TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_back_comic_read_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="3dp"
+                android:src="@drawable/goback"></ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="上一章"
+                android:textColor="@color/white"
+                android:textSize="13sp"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_next_comic_read_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="3dp"
+                android:src="@drawable/next"></ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="下一章"
+                android:textColor="@color/white"
+                android:textSize="13sp"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_setting_comic_read_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="3dp"
+                android:src="@drawable/ver"></ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="竖翻"
+                android:textColor="@color/white"
+                android:textSize="13sp"></TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
