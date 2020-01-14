@@ -2,7 +2,7 @@
 # 云漫画源码</br>
 漫画阅读 可根据规则添加可用漫画网站</br>
 利用webview jsoup抓取网站数据</br>
-/*
+```/*
 ** 参数说明
 ** ========EL
 ** html解析操作 <div class="div" id="img"> select.div 或 select#img
@@ -74,4 +74,4 @@
       "prepareMethod": "",
       "nextPageMethod": "javascript@#pageList()"
     }
-}
+}```
