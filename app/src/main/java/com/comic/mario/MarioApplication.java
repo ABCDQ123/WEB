@@ -18,7 +18,7 @@ public class MarioApplication extends Application {
 
     public static final String WebFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Mario/WebElement";
 
-    private static final String UMENG_KEY = "UMENG_KEY";
+    private static final String UMENG_KEY = "5e1e7c560cafb2aeff000494";
     private static final String UMENG_CHANNEL = "UMENG_CHANNEL";
 
     @Override
