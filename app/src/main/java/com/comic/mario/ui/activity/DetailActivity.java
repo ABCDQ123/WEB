@@ -191,11 +191,13 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
                     }
 
                 }
+            } catch (JSONException e) {
+                Toast.makeText(this, "集数分析出错", Toast.LENGTH_SHORT).show();
+                finish();
+            } finally {
                 runOnUiThread(() -> {
                     adapter.notifyDataSetChanged();
                 });
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }).start();
     }
