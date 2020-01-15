@@ -32,6 +32,7 @@ import com.comic.mario.util.recyclerview.MultiData;
 import com.comic.mario.util.recyclerview.MutiViewHolder;
 import com.comic.mario.util.recyclerview.SpaceItemDecoration;
 import com.comic.mario.util.recyclerview.StateRecyclerView;
+import com.umeng.analytics.MobclickAgent;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -74,6 +75,17 @@ public class RankFragment extends LazyFragment implements MutiViewHolder, ImpKiK
         rv_rank_fragment = view.findViewById(R.id.rv_rank_fragment);
         mRankBean = (WebBean.RankBean) getArguments().getSerializable("key");
         init();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("RankFragment");
+    }
+    
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 
     @Override

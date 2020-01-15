@@ -53,4 +53,7 @@ dependencies {
     implementation rootProject.ext.dependencies.fresco
     implementation rootProject.ext.dependencies.frescokhttp
     implementation rootProject.ext.dependencies.frescophotoview
+
+    implementation rootProject.ext.dependencies.umeng
+    implementation rootProject.ext.dependencies.umengcom
 }

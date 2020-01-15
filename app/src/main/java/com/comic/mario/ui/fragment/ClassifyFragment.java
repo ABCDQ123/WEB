@@ -33,6 +33,7 @@ import com.comic.mario.util.recyclerview.MultiData;
 import com.comic.mario.util.recyclerview.MutiViewHolder;
 import com.comic.mario.util.recyclerview.SpaceItemDecoration;
 import com.comic.mario.util.recyclerview.StateRecyclerView;
+import com.umeng.analytics.MobclickAgent;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -73,6 +74,17 @@ public class ClassifyFragment extends LazyFragment implements MutiViewHolder, Im
         srl_rank_fragment = view.findViewById(R.id.srl_rank_fragment);
         rv_rank_fragment = view.findViewById(R.id.rv_rank_fragment);
         mClassifyBean = (WebBean.ClassifyBean) getArguments().getSerializable("key");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("ClassifyFragment");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 
     @Override

@@ -36,6 +36,7 @@ import com.comic.mario.util.recyclerview.MutiViewHolder;
 import com.comic.mario.util.recyclerview.SpaceItemDecoration;
 import com.comic.mario.util.recyclerview.StateRecyclerView;
 import com.google.gson.Gson;
+import com.umeng.analytics.MobclickAgent;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -89,6 +90,17 @@ public class CollectFragment extends LazyFragment implements MutiViewHolder {
         imageSize = (SystemUtil.getSreenWith(getActivity()) - SizeUtil.dip2px(getContext(), 30)) / 3 * 4 / 3;
         webBean = (WebBean) getArguments().getSerializable("key");
         init();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("CollectFragment");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 
     private void init() {
