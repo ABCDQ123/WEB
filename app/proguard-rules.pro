@@ -107,3 +107,10 @@
 -keep public class com.comic.mario.R$*{
 public static final int *;
 }
+#webview js
+-keepattributes *Annotation*
+-keepattributes *JavascriptInterface*
+#jsoup
+-dontwarn org.jsoup.**
+-keep class org.jsoup.**{*;}
+-keeppackagenames org.jsoup.nodes

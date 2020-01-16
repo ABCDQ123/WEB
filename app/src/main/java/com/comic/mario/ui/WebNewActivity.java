@@ -71,7 +71,7 @@ public class WebNewActivity extends AppCompatActivity {
                     }
                     String storePath = MarioApplication.WebFilePath;
                     File file = new File(storePath);
-                    writeTxtToFile(jsonArray.toString(), file.getPath(), "web_" + webBean.getWeb());
+                    Util.writeTxtToFile(jsonArray.toString(), file.getPath(), "web_" + webBean.getWeb(), true);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     runOnUiThread(() -> {
@@ -87,23 +87,4 @@ public class WebNewActivity extends AppCompatActivity {
         });
     }
 
-
-    private void writeTxtToFile(String strcontent, String filePath, String fileName) {
-        String strFilePath = filePath + "/" + fileName;
-        // 每次写入时，都换行写
-        String strContent = strcontent + "\r\n";
-        try {
-            File file = new File(strFilePath);
-            if (!file.exists()) {
-                file.getParentFile().mkdirs();
-                file.createNewFile();
-            }
-            RandomAccessFile raf = new RandomAccessFile(file, "rwd");
-            raf.seek(file.length());
-            raf.write(strContent.getBytes());
-            raf.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

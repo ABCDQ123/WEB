@@ -54,6 +54,22 @@ public class SearchActivity extends AppCompatActivity implements MutiViewHolder,
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (kiKyoSearchClient != null) {
+            kiKyoSearchClient.resume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (kiKyoSearchClient != null) {
+            kiKyoSearchClient.pause();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);

@@ -95,6 +95,7 @@ public class HistoryFragment extends Fragment implements MutiViewHolder {
     @Override
     public void onPause() {
         super.onPause();
+        MobclickAgent.onPageEnd("HistoryFragment");
     }
 
     private void init() {
@@ -106,6 +107,7 @@ public class HistoryFragment extends Fragment implements MutiViewHolder {
         mWebPreference = new WebPreference(getContext());
         initData();
         srl_rank_fragment.setOnRefreshListener(() -> {
+            srl_rank_fragment.setRefreshing(false);
             items.clear();
             adapter.notifyDataSetChanged();
             initData();
@@ -114,7 +116,6 @@ public class HistoryFragment extends Fragment implements MutiViewHolder {
     }
 
     private void initData() {
-        srl_rank_fragment.setRefreshing(true);
         new Thread(() -> {
             try {
                 ComicPreference preferencesManager = new ComicPreference(getContext());
@@ -123,18 +124,17 @@ public class HistoryFragment extends Fragment implements MutiViewHolder {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                         ComicBean comicBean = new ComicBean();
-                        comicBean.setWebName("" + jsonObject.optString("WebName"));
                         comicBean.setLink("" + jsonObject.optString("Url"));
                         comicBean.setTitle("" + jsonObject.optString("Title"));
                         comicBean.setImg("" + jsonObject.optString("Image"));
                         comicBean.setIntro("" + jsonObject.optString("Episode"));
+                        comicBean.setWebName("" + jsonObject.optString("WebName"));
                         items.add(new MultiData(1, R.layout.item_comic, 3, comicBean));
                     }
                     Collections.reverse(items);
                 }
                 getActivity().runOnUiThread(() -> {
                     adapter.notifyDataSetChanged();
-                    srl_rank_fragment.setRefreshing(false);
                 });
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -180,11 +180,11 @@ public class HistoryFragment extends Fragment implements MutiViewHolder {
                         return;
                     }
                 }
-                Toast.makeText(getContext(),"无可用web",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "无可用web", Toast.LENGTH_SHORT).show();
             });
             holder.itemView.setOnLongClickListener(v -> {
                 thread.submit(() -> {
-                    preferencesManager.removeHist(webBean.getWeb(), dataBean.getTitle());
+                    preferencesManager.removeHist(dataBean.getWebName().replace("web_", ""), dataBean.getTitle());
                     getActivity().runOnUiThread(() -> {
                         Toast.makeText(getContext(), "已删除，刷新即可", Toast.LENGTH_SHORT).show();
                     });

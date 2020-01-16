@@ -98,6 +98,22 @@ public class ReadActivity extends AppCompatActivity implements ViewPager.OnPageC
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (clientCurrent != null) {
+            clientCurrent.resume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (clientCurrent != null) {
+            clientCurrent.pause();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);

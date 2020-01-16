@@ -101,6 +101,7 @@ public class CollectFragment extends LazyFragment implements MutiViewHolder {
     @Override
     public void onPause() {
         super.onPause();
+        MobclickAgent.onPageEnd("CollectFragment");
     }
 
     private void init() {
@@ -134,6 +135,7 @@ public class CollectFragment extends LazyFragment implements MutiViewHolder {
                         comicBean.setTitle(jsonObject.optString("Title"));
                         comicBean.setImg(jsonObject.optString("Image"));
                         comicBean.setIntro(jsonObject.optString("WebName"));
+                        comicBean.setWebName(jsonObject.optString("WebName"));
                         items.add(new MultiData(1, R.layout.item_comic, 3, comicBean));
                     }
                     Collections.reverse(items);
@@ -189,7 +191,7 @@ public class CollectFragment extends LazyFragment implements MutiViewHolder {
             });
             holder.itemView.setOnLongClickListener(v -> {
                 thread.submit(() -> {
-                    preferencesManager.removeCollect(webBean.getWeb(), dataBean.getTitle());
+                    preferencesManager.removeCollect(dataBean.getWebName().replace("web_", ""), dataBean.getTitle());
                     getActivity().runOnUiThread(() -> {
                         Toast.makeText(getContext(), "已删除，刷新即可", Toast.LENGTH_SHORT).show();
                     });

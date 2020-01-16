@@ -69,6 +69,22 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (kiKyoDetailClient != null) {
+            kiKyoDetailClient.resume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (kiKyoDetailClient != null) {
+            kiKyoDetailClient.pause();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
@@ -92,7 +108,9 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
         tv_collect_comic_detail_activity.setOnClickListener(v -> {
             if (mUrl == null || mTitle.isEmpty() || mImage.isEmpty())
                 return;
-            comicPreference.commitCollect(mWebBean.getWeb(), mUrl, mTitle, mImage);
+            new Thread(()->{
+                comicPreference.commitCollect(mWebBean.getWeb(), mUrl, mTitle, mImage);
+            }).start();
             Toast.makeText(this, "已收藏", Toast.LENGTH_SHORT).show();
         });
 
@@ -176,24 +194,24 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
                 ArrayList<MultiData> temp = response;
                 for (int i = 0; i < mEpisodes.length(); i++) {
                     JSONObject jsonObject = (JSONObject) mEpisodes.get(i);
-                    for (int j = 1; j < temp.size(); j++) {
-                        ComicDetailBean comicDetailBean = (ComicDetailBean) temp.get(0).getData();
-                        ComicEpisodeBean mhfComicEpisode = (ComicEpisodeBean) temp.get(j).getData();
-                        if (comicDetailBean.getTitle().equals(jsonObject.getString("Title"))) {
-                            if (jsonObject.opt("Episode").equals(mhfComicEpisode.getEpisode())) {
-                                mhfComicEpisode.setHist(true);
-                                mhfComicEpisode.setHistIndex(jsonObject.optInt("index"));
-                            } else {
-                                mhfComicEpisode.setHist(false);
-                                mhfComicEpisode.setHistIndex(0);
+                    for (int j = 1; j < temp.size() && temp.size() > 1; j++) {
+                        if (temp.get(0).getData() instanceof ComicDetailBean && temp.get(j).getData() instanceof ComicEpisodeBean) {
+                            ComicDetailBean comicDetailBean = (ComicDetailBean) temp.get(0).getData();
+                            ComicEpisodeBean mhfComicEpisode = (ComicEpisodeBean) temp.get(j).getData();
+                            if (comicDetailBean.getTitle().equals(jsonObject.getString("Title"))) {
+                                if (jsonObject.opt("Episode").equals(mhfComicEpisode.getEpisode())) {
+                                    mhfComicEpisode.setHist(true);
+                                    mhfComicEpisode.setHistIndex(jsonObject.optInt("index"));
+                                } else {
+                                    mhfComicEpisode.setHist(false);
+                                    mhfComicEpisode.setHistIndex(0);
+                                }
                             }
                         }
                     }
-
                 }
             } catch (JSONException e) {
-                Toast.makeText(this, "集数分析出错", Toast.LENGTH_SHORT).show();
-                finish();
+
             } finally {
                 runOnUiThread(() -> {
                     adapter.notifyDataSetChanged();

@@ -79,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+            finish();
+            return;
+        }
         SystemUtil.setStatusBarTransparent(getWindow());
         SystemUtil.setMyStatusbar(this, findViewById(R.id.v_status_main_activity));
         vp_main_activity = findViewById(R.id.vp_main_activity);
@@ -103,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initData() {
         new Thread(() -> {
+            mWebBean = null;
+            mCurrentWeb = "";
             if (mWebPreference == null) {
                 mWebPreference = new WebPreference(this);
             }

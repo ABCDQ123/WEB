@@ -8,9 +8,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +35,7 @@ public class Util {
     }
 
     public static String readTxtFile(String strFilePath) {
-        String res = "";
+        String res = null;
         try {
             File file = new File(strFilePath);
             FileInputStream fis = null;
@@ -44,10 +46,11 @@ public class Util {
             fis.read(buffer);
             res = new String(buffer, "UTF-8");
             fis.close();
+            return res;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return res;
     }
 
     public static List<String> getFilesAllName(String path) {
@@ -64,5 +67,30 @@ public class Util {
             s.add(files[i].getName());
         }
         return s;
+    }
+
+    public static void writeTxtToFile(String strcontent, String filePath, String fileName, boolean over) {
+        String strFilePath = filePath + "/" + fileName;
+        // 每次写入时，都换行写
+        String strContent = strcontent + "\r\n";
+        try {
+            File file = new File(strFilePath);
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+            if (over) {
+                FileOutputStream out = new FileOutputStream(file);
+                out.write(strContent.getBytes());
+                out.flush();
+            } else {
+                RandomAccessFile raf = new RandomAccessFile(file, "rwd");
+                raf.seek(file.length());
+                raf.write(strContent.getBytes());
+                raf.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

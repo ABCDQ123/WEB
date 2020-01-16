@@ -59,6 +59,20 @@ public class KiKyoRankClient {
         }
     }
 
+    public void pause() {
+        if (null != mWebView) {
+            mWebView.onPause();
+            mWebView.pauseTimers();
+        }
+    }
+
+    public void resume() {
+        if (null != mWebView) {
+            mWebView.onResume();
+            mWebView.resumeTimers();
+        }
+    }
+
     public void request(Context context, ArrayList<MultiData> items, WebBean.RankBean rankBean, ImpKiKyo listener) {
         if (null == mWebView) {
             mContext = context;
