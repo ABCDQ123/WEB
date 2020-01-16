@@ -81,18 +81,12 @@ public class RankFragment extends LazyFragment implements MutiViewHolder, ImpKiK
     @Override
     public void onResume() {
         super.onResume();
-        if (kiKyoRankClient != null) {
-            kiKyoRankClient.resume();
-        }
         MobclickAgent.onPageStart("RankFragment");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        if (kiKyoRankClient != null) {
-            kiKyoRankClient.pause();
-        }
         MobclickAgent.onPageEnd("RankFragment");
     }
 

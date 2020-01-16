@@ -79,18 +79,12 @@ public class ClassifyFragment extends LazyFragment implements MutiViewHolder, Im
     @Override
     public void onResume() {
         super.onResume();
-        if (kiKyoClassifyClient != null) {
-            kiKyoClassifyClient.resume();
-        }
         MobclickAgent.onPageStart("ClassifyFragment");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        if (kiKyoClassifyClient != null) {
-            kiKyoClassifyClient.pause();
-        }
         MobclickAgent.onPageEnd("ClassifyFragment");
     }
 

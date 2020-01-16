@@ -70,20 +70,6 @@ public class KiKyoReadClient {
         }
     }
 
-    public void pause() {
-        if (null != mWebView) {
-            mWebView.onPause();
-            mWebView.pauseTimers();
-        }
-    }
-
-    public void resume() {
-        if (null != mWebView) {
-            mWebView.onResume();
-            mWebView.resumeTimers();
-        }
-    }
-
     public KiKyoReadClient(Context context, String url, WebBean.ReadBean readBean, ImpKiKyo listener) {
         parse(context, url, readBean, listener);
     }

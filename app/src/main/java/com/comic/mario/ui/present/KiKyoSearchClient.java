@@ -58,20 +58,6 @@ public class KiKyoSearchClient {
         }
     }
 
-    public void pause() {
-        if (null != mWebView) {
-            mWebView.onPause();
-            mWebView.pauseTimers();
-        }
-    }
-
-    public void resume() {
-        if (null != mWebView) {
-            mWebView.onResume();
-            mWebView.resumeTimers();
-        }
-    }
-
     public void request(Context context, ArrayList<MultiData> items, WebBean.SearchBean classifyBean, String key, ImpKiKyo listener) {
         if (null == mWebView) {
             mContext = context;
