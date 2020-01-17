@@ -117,7 +117,7 @@ public class KiKyoReadClient {
                             mWebView.loadUrl("" + readBean.getPrepareMethod());
                         }
                     }
-//                    view.loadUrl("javascript:window.java_obj.showHtml(document.getElementsByTagName('html')[0].innerHTML);");
+                    view.loadUrl("javascript:window.java_obj.showHtml(document.getElementsByTagName('html')[0].innerHTML);");
                 }
 
                 @Override
@@ -137,6 +137,7 @@ public class KiKyoReadClient {
                 }
             });
         }
+        mItems.clear();
         position = 1;
         if (null == mReadBean.getJointUrl()) {
             mWebView.loadUrl(url);

@@ -105,6 +105,7 @@ public class KiKyoSearchClient {
                 }
             });
         }
+        mItems.clear();
         position = 1;
         mWebView.loadUrl(mSearchBean.getUrl() + key);
     }

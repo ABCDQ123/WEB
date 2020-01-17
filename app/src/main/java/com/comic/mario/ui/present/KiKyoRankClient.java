@@ -112,6 +112,7 @@ public class KiKyoRankClient {
                 }
             });
         }
+        mItems.clear();
         position = 1;
         mWebView.loadUrl(mRankBean.getUrl());
     }
