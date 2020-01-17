@@ -127,7 +127,6 @@ public class KiKyoSearchClient {
         }
     }
 
-
     private void parse(String html, ImpKiKyo listener) {
         ArrayList<MultiData> itemsTmp = new ArrayList<>();
         Document document = Jsoup.parse(html);

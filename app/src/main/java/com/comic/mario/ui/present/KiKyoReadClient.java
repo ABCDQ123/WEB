@@ -50,6 +50,8 @@ public class KiKyoReadClient {
     private int position;
     private ArrayList<ComicReadBean> mItems = new ArrayList<>();
 
+    private int mPageCount = 1;
+
     public void cancel() {
         if (mWebView != null) {
             ViewParent parent = mWebView.getParent();
@@ -140,7 +142,7 @@ public class KiKyoReadClient {
         position = 1;
         if (null == mReadBean.getJointUrl()) {
             mWebView.loadUrl(url);
-        } else {
+        } else if (!mReadBean.getJointUrl().isEmpty()) {
             String site = mReadBean.getJointUrl().split("@")[0];
             String joinUrl = mReadBean.getJointUrl().split("@")[1];
             if (site.equals("left")) {
@@ -148,11 +150,16 @@ public class KiKyoReadClient {
             } else if (site.equals("right")) {
                 mWebView.loadUrl(url + joinUrl);
             }
+        } else {
+            mWebView.loadUrl(url);
         }
     }
 
     public void nextPage() {
         if (null == mReadBean || null == mReadBean.getNextPageMethod()) {
+            return;
+        }
+        if (mReadBean.getNextPageMethod().isEmpty()) {
             return;
         }
         if (mReadBean.getNextPageMethod().contains("loadUrl")) {
@@ -228,14 +235,18 @@ public class KiKyoReadClient {
 
                 } else {
                     listener.response(0, itemsTmp);
-                    nextPage();
+                    if (comicReadBeanSingle.getIndex() < comicReadBeanSingle.getCount()) {
+                        nextPage();
+                    }
                 }
             });
         } else if (mItems.size() == 0 && itemsTmp.size() != 0) {
             mItems.addAll(itemsTmp);
             ((Activity) mContext).runOnUiThread(() -> {
                 listener.response(0, comicReadBeanSingle);
-                nextPage();
+                if (comicReadBeanSingle.getIndex() < comicReadBeanSingle.getCount()) {
+                    nextPage();
+                }
             });
         }
     }

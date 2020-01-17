@@ -59,7 +59,6 @@
     "timeEl": "select!p@get!4@text",
     //集数
     "episodeMainEl": "div#list_block p.zlist a",
-    "episodeSort": "negative",//集数排列正序反序列(从上到下,0到100为正序)positive(正)/negative(反)
     "episodeEl": "attr!href"
   },
     "read": {//阅读页面

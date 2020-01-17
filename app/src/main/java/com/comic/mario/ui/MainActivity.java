@@ -111,10 +111,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mCurrentWeb = "";
             if (mWebPreference == null) {
                 mWebPreference = new WebPreference(this);
+                mWebPreference.remove();
             }
             if (mWebPreference.get() == null) {
                 mWebPreference.commit("web_ddmmcc");
                 mWebPreference.commit("web_ssoonn");
+                mWebPreference.commit("web_manhuafen");
+                mWebPreference.commit("web_manhuadui");
             }
             List<String> ohterFiles = Util.getFilesAllName(MarioApplication.WebFilePath);//外部文件名列表
             String errorFile = "";//发生错误时记录错误的外部文件名

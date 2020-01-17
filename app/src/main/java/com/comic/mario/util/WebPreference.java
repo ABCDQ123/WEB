@@ -33,6 +33,13 @@ public class WebPreference {
         }
     }
 
+    public void remove() {
+        SharedPreferences spWrite = mContext.getSharedPreferences(WEB_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = spWrite.edit();
+        editor.clear();
+        editor.commit();
+    }
+
     public String get() {
         SharedPreferences sp = mContext.getSharedPreferences(WEB_FILE, Context.MODE_PRIVATE);
         String files = sp.getString(WEB_FILES, null);

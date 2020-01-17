@@ -149,6 +149,7 @@ public class KiKyoDetailClient {
         comicDetailBean.setStatus(status);
         comicDetailBean.setUpdatetime(time);
         itemsTmp.add(new MultiData(0, R.layout.item_comic_info, 4, comicDetailBean));
+        itemsTmp.add(new MultiData(2, R.layout.item_episode_sort, 4, null));
 
         Elements elementsEpisode = document.select(mDetailBean.getEpisodeMainEl());
         for (Element element : elementsEpisode) {
@@ -178,6 +179,8 @@ public class KiKyoDetailClient {
                         if (comicBean.getTitle().equals(comicBeanTemp.getTitle())) {
                             sameIndex.add(multiDataTemp);
                         }
+                    } else if (multiDataTemp.getTag() == 2) {
+                        sameIndex.add(multiDataTemp);
                     }
                 }
             }

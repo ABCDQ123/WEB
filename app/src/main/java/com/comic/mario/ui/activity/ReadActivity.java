@@ -67,7 +67,6 @@ public class ReadActivity extends AppCompatActivity implements ViewPager.OnPageC
     private ArrayList<ReadView> items = new ArrayList<>();
 
     private int mEpisode;
-    private String mEpisodeSort;
     private ArrayList<ComicEpisodeBean> mEpisodes;
     private ComicDetailBean mDetail;
     private WebBean mWebBean;
@@ -121,7 +120,6 @@ public class ReadActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         comicPreference = new ComicPreference(this);
         mWebBean = (WebBean) getIntent().getSerializableExtra("read");
-        mEpisodeSort = mWebBean.getDetail().getEpisodeSort();
         mEpisode = getIntent().getIntExtra("episode", 0);
         mEpisodes = (ArrayList<ComicEpisodeBean>) getIntent().getSerializableExtra("episodes");
         mDetail = (ComicDetailBean) getIntent().getSerializableExtra("detail");
@@ -315,22 +313,20 @@ public class ReadActivity extends AppCompatActivity implements ViewPager.OnPageC
     }
 
     private void reloadData(boolean nextVol) {
-        if (mEpisode + 1 > mEpisodes.size() || mEpisode - 1 < 0) {
-            Toast.makeText(this, "没了，别翻了", Toast.LENGTH_SHORT).show();
-            return;
-        }
         if (nextVol) {
-            if (mEpisodeSort.equals("negative")) {
-                mEpisode--;
-            } else {
-                mEpisode++;
+            if (mEpisode - 1 < 0) {
+                Toast.makeText(this, "没了，别翻了", Toast.LENGTH_SHORT).show();
+                reloading = false;
+                return;
             }
+            mEpisode--;
         } else {
-            if (mEpisodeSort.equals("negative")) {
-                mEpisode++;
-            } else {
-                mEpisode--;
+            if (mEpisode + 1 >= mEpisodes.size()) {
+                Toast.makeText(this, "没了，别翻了", Toast.LENGTH_SHORT).show();
+                reloading = false;
+                return;
             }
+            mEpisode++;
         }
         clientCurrent = new KiKyoReadClient(this, mEpisodes.get(mEpisode).getLink(), mWebBean.getRead(), this);
     }

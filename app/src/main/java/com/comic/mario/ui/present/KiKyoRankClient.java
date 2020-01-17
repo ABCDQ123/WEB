@@ -117,6 +117,12 @@ public class KiKyoRankClient {
     }
 
     public void next() {
+        if (null == mRankBean.getNextPageMethod()) {
+            return;
+        }
+        if (mRankBean.getNextPageMethod().isEmpty()) {
+            return;
+        }
         if (mRankBean.getNextPageMethod().contains("loadUrl")) {
             position++;
             String method = mRankBean.getNextPageMethod().split("@#")[1].split("@!")[0];

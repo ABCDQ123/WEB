@@ -111,11 +111,17 @@ public class KiKyoClassifyClient {
     }
 
     public void next() {
+        if (mClassifyBean.getNextPageMethod() == null) {
+            return;
+        }
+        if (mClassifyBean.getNextPageMethod().isEmpty()) {
+            return;
+        }
         if (mClassifyBean.getNextPageMethod().contains("loadUrl")) {
             position++;
             String method = mClassifyBean.getNextPageMethod().split("@#")[1].split("@!")[0];
             mWebView.loadUrl("" + method + "" + position + "/");
-        } else {
+        } else if (mClassifyBean.getNextPageMethod().contains("javascript")) {
             String method = mClassifyBean.getNextPageMethod().split("@#")[1];
             mWebView.loadUrl("javascript:" + method + "");
         }

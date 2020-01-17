@@ -1,0 +1,207 @@
+{
+  "web": "manhuafen",
+  "rank": [
+    {
+      "title": "更新",
+      "url": "https://m.manhuafen.com/update/",
+      "mainEl": "div.page-main div.UpdateList div.clearfix.itemBox",
+      "linkEl": "select!div.itemImg a@attr!href",
+      "titleEl": "select!div.itemTxt a.title@text",
+      "imageEl": "select!div.itemImg img@attr!src",
+      "introEl": "select!div.itemTxt p@get!1@select!span.pd@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/update/@!position/"
+    },
+    {
+      "title": "日榜",
+      "url": "https://m.manhuafen.com/rank/click-daily/",
+      "mainEl": "div.page-main div.UpdateList div.rand_tc div.items.clearfix div.itemBox",
+      "linkEl": "select!div.itemImg a@attr!href",
+      "titleEl": "select!div.itemTxt a.title@text",
+      "imageEl": "select!div.itemImg img@attr!src",
+      "introEl": "select!div.itemTxt p@get!1@select!span.pd@text",
+      "prepareMethod": "",
+      "nextPageMethod": ""
+    },
+    {
+      "title": "周榜",
+      "url": "https://m.manhuafen.com/rank/click-weekly/",
+      "mainEl": "div.page-main div.UpdateList div.rand_tc div.items.clearfix div.itemBox",
+      "linkEl": "select!div.itemImg a@attr!href",
+      "titleEl": "select!div.itemTxt a.title@text",
+      "imageEl": "select!div.itemImg img@attr!src",
+      "introEl": "select!div.itemTxt p@get!1@select!span.pd@text",
+      "prepareMethod": "",
+      "nextPageMethod": ""
+    },
+    {
+      "title": "总榜",
+      "url": "https://m.manhuafen.com/rank/click/",
+      "mainEl": "div.page-main div.UpdateList div.rand_tc div.items.clearfix div.itemBox",
+      "linkEl": "select!div.itemImg a@attr!href",
+      "titleEl": "select!div.itemTxt a.title@text",
+      "imageEl": "select!div.itemImg img@attr!src",
+      "introEl": "select!div.itemTxt p@get!1@select!span.pd@text",
+      "prepareMethod": "",
+      "nextPageMethod": ""
+    }
+  ],
+  "classify": [
+    {
+      "title": "全部",
+      "url": "https://m.manhuafen.com/list/riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/riben/click/@!position/"
+    },
+    {
+      "title": "冒险",
+      "url": "https://m.manhuafen.com/list/maoxian-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/maoxian-riben/click/@!position/"
+    },
+    {
+      "title": "魔法",
+      "url": "https://m.manhuafen.com/list/mofa-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/mofa-riben/click/@!position/"
+    },
+    {
+      "title": "魔幻",
+      "url": "https://m.manhuafen.com/list/mohuan-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/mohuan-riben/click/@!position/"
+    },
+    {
+      "title": "搞笑",
+      "url": "https://m.manhuafen.com/list/gaoxiao-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/gaoxiao-riben/click/@!position/"
+    },
+    {
+      "title": "轻小说",
+      "url": "https://m.manhuafen.com/list/qingxiaoshuo-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/qingxiaoshuo-riben/click/@!position/"
+    },
+    {
+      "title": "奇幻",
+      "url": "https://m.manhuafen.com/list/qihuan-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/qihuan-riben/click/@!position/"
+    },
+    {
+      "title": "职场",
+      "url": "https://m.manhuafen.com/list/zhichang-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/zhichang-riben/click/@!position/"
+    },
+    {
+      "title": "伪娘",
+      "url": "https://m.manhuafen.com/list/weiniang-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/weiniang-riben/click/@!position/"
+    },
+    {
+      "title": "性转",
+      "url": "https://m.manhuafen.com/list/xingzhuanhuan-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/xingzhuanhuan-riben/click/@!position/"
+    },
+    {
+      "title": "节操",
+      "url": "https://m.manhuafen.com/list/jiecao-riben/click/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/jiecao-riben/click/@!position/"
+    }
+  ],
+  "search": {
+    "title": "搜索",
+    "url": "https://m.manhuafen.com/search/?keywords=",
+    "mainEl": "div.page-main div.UpdateList div.clearfix.itemBox",
+    "linkEl": "select!div.itemImg a@attr!href",
+    "titleEl": "select!div.itemTxt a.title@text",
+    "imageEl": "select!div.itemImg img@attr!src",
+    "introEl": "select!div.itemTxt p@get!1@select!span.pd@text",
+    "prepareMethod": "",
+    "nextPageMethod": ""
+  },
+  "detail": {
+    "title": "详情",
+    "detailMainEl": "div.Introduct",
+    "titleEl": "select!div.subHeader@text",
+    "imageEl": "select!div.Introduct_Sub.autoHeight div.pic img@attr!src",
+    "authorEl": "select!div.sub_r.autoHeight p.txtItme@get!0@text",
+    "classifyEl": "select!div.sub_r.autoHeight p.txtItme@get!1@text",
+    "popularEl": "select!div.sub_r.autoHeight p.txtItme@get!2@text",
+    "statusEl": "select!div.sub_r.autoHeight p.txtItme@get!3@text",
+    "timeEl": "select!div.sub_r.autoHeight p.txtItme@get!4@text",
+    "episodeMainEl": "div.Introduct div.img_001.globalPadding.globaltop10.globalbottom10 div#list_block div.comic-chapters div.chapter-body.clearfix div.chapter-warp ul a",
+    "episodeLinkEl": "attr!href",
+    "episodeEl": "select!span@text",
+    "episodeSort": "negative",
+    "prepareMethod": ""
+  },
+  "read": {
+    "jointUrl": "left@https://m.manhuafen.com",
+    "indexEl": "select!div#images p.img_info@text",
+    "imageUrl": "select!div#images img@attr!src",
+    "introUrl": "select!head title@text",
+    "prepareMethod": "",
+    "nextPageMethod": "javascript@#SinTheme.nextPage()"
+  }
+}

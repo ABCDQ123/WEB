@@ -33,6 +33,7 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -54,6 +55,8 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
     private String mTitle = "";
 
     private ComicPreference comicPreference;
+
+    private MultiData multiDataDetail;
 
     @Override
     protected void onDestroy() {
@@ -83,6 +86,7 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
         rv_comic_detail_activity.setLayoutManager(new MGridLayoutManager(this, 4));
         List<Integer> integers = new ArrayList<>();
         integers.add(0);
+        integers.add(1);
         rv_comic_detail_activity.addItemDecoration(new SpaceItemDecoration(4, SizeUtil.dip2px(this, 15), integers, true));
         adapter = new AdapterManager().getGridMultiAdapter(this, items = new ArrayList<>(), this);
         rv_comic_detail_activity.setAdapter(adapter);
@@ -92,7 +96,7 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
         tv_collect_comic_detail_activity.setOnClickListener(v -> {
             if (mUrl == null || mTitle.isEmpty() || mImage.isEmpty())
                 return;
-            new Thread(()->{
+            new Thread(() -> {
                 comicPreference.commitCollect(mWebBean.getWeb(), mUrl, mTitle, mImage);
             }).start();
             Toast.makeText(this, "已收藏", Toast.LENGTH_SHORT).show();
@@ -145,15 +149,38 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
                 Intent intent = new Intent(this, ReadActivity.class);
                 intent.putExtra("detailUrl", mUrl);
                 intent.putExtra("read", (Serializable) mWebBean);
-                intent.putExtra("episode", position - 1);
+                intent.putExtra("episode", position - 2);
                 ArrayList<ComicEpisodeBean> episodes = new ArrayList<>();
-                for (int i = 1; i < items.size(); i++) {
+                for (int i = 2; i < items.size(); i++) {
                     episodes.add((ComicEpisodeBean) items.get(i).getData());
                 }
                 intent.putExtra("episodes", (Serializable) episodes);
                 intent.putExtra("detail", (Serializable) (ComicDetailBean) items.get(0).getData());
                 intent.putExtra("histIndex", dataBean.getHistIndex());
                 startActivity(intent);
+            });
+        } else if (tag == 2) {
+            TextView tv_switch_sort = holder.itemView.findViewById(R.id.tv_switch_sort);
+            tv_switch_sort.setOnClickListener(v -> {
+                if (items.size() == 0 || items.size() == 1 || items.size() == 2) {
+                    return;
+                }
+                ArrayList<MultiData> itemSort = new ArrayList<>();
+                new Thread(() -> {
+                    multiDataDetail = items.get(0);
+                    itemSort.addAll(items);
+                    itemSort.remove(0);
+                    itemSort.remove(0);
+                    Collections.reverse(itemSort);
+                    runOnUiThread(() -> {
+                        items.clear();
+                        adapter.notifyDataSetChanged();
+                        items.add(multiDataDetail);
+                        items.add(new MultiData(2, R.layout.item_episode_sort, 4, null));
+                        items.addAll(itemSort);
+                        adapter.notifyDataSetChanged();
+                    });
+                }).start();
             });
         }
     }
