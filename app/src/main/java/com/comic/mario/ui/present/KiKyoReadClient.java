@@ -137,7 +137,6 @@ public class KiKyoReadClient {
                 }
             });
         }
-        mItems.clear();
         position = 1;
         if (null == mReadBean.getJointUrl()) {
             mWebView.loadUrl(url);

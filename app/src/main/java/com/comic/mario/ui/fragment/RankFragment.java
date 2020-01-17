@@ -108,6 +108,8 @@ public class RankFragment extends LazyFragment implements MutiViewHolder, ImpKiK
         rv_rank_fragment.setLoading(true);
 
         srl_rank_fragment.setOnRefreshListener(() -> {
+            items.clear();
+            adapter.notifyDataSetChanged();
             rv_rank_fragment.setLoading(true);
             kiKyoRankClient.request(getContext(), items, mRankBean, this);
         });

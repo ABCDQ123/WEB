@@ -106,6 +106,8 @@ public class ClassifyFragment extends LazyFragment implements MutiViewHolder, Im
         rv_rank_fragment.setLoading(true);
 
         srl_rank_fragment.setOnRefreshListener(() -> {
+            items.clear();
+            adapter.notifyDataSetChanged();
             rv_rank_fragment.setLoading(true);
             kiKyoClassifyClient.request(getContext(), items, mClassifyBean, this);
         });

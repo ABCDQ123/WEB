@@ -106,7 +106,6 @@ public class KiKyoClassifyClient {
                 }
             });
         }
-        mItems.clear();
         position = 1;
         mWebView.loadUrl(mClassifyBean.getUrl());
     }

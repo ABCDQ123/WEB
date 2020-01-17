@@ -106,7 +106,6 @@ public class KiKyoDetailClient {
                 }
             });
         }
-        mItems.clear();
         position = 1;
         mWebView.loadUrl(url);
     }
