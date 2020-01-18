@@ -123,8 +123,16 @@ public class KiKyoClassifyClient {
         }
         if (mClassifyBean.getNextPageMethod().contains("loadUrl")) {
             position++;
-            String method = mClassifyBean.getNextPageMethod().split("@#")[1].split("@!")[0];
-            mWebView.loadUrl("" + method + "" + position + "/");
+            String methods[] = mClassifyBean.getNextPageMethod().split("@#")[1].split("@!");
+            String method = "";
+            for (String string : methods) {
+                if (string.equals("position")) {
+                    method = method + position;
+                } else {
+                    method = method + string;
+                }
+            }
+            mWebView.loadUrl("" + method + "");
         } else if (mClassifyBean.getNextPageMethod().contains("javascript")) {
             String method = mClassifyBean.getNextPageMethod().split("@#")[1];
             mWebView.loadUrl("javascript:" + method + "");

@@ -128,8 +128,16 @@ public class KiKyoRankClient {
         }
         if (mRankBean.getNextPageMethod().contains("loadUrl")) {
             position++;
-            String method = mRankBean.getNextPageMethod().split("@#")[1].split("@!")[0];
-            mWebView.loadUrl("" + method + "" + position + "/");
+            String methods[] = mRankBean.getNextPageMethod().split("@#")[1].split("@!");
+            String method = "";
+            for (String string : methods) {
+                if (string.equals("position")) {
+                    method = method + position;
+                } else {
+                    method = method + string;
+                }
+            }
+            mWebView.loadUrl("" + method + "");
         } else {
             String method = mRankBean.getNextPageMethod().split("@#")[1];
             mWebView.loadUrl("javascript:" + method + "");

@@ -19,6 +19,7 @@ import com.comic.mario.ui.bean.ComicBean;
 import com.comic.mario.ui.bean.ComicDetailBean;
 import com.comic.mario.ui.bean.ComicEpisodeBean;
 import com.comic.mario.ui.bean.WebBean;
+import com.comic.mario.util.LogUtil;
 import com.comic.mario.util.recyclerview.MultiData;
 
 import org.jsoup.Jsoup;
@@ -186,7 +187,17 @@ public class KiKyoDetailClient {
             String link = ParseUtil.parseOption(element, mDetailBean.getEpisodeLinkEl());
             String episode = ParseUtil.parseOption(element, mDetailBean.getEpisodeEl());
             comicEpisode.setLink(link);
-            comicEpisode.setEpisode(episode);
+            String eps[] = episode.split(" ");
+            if (eps == null || eps.length == 0 || eps.length == 1) {
+                comicEpisode.setEpisode(episode);
+            } else if (eps.length > 1) {
+                for (String e : eps) {
+                    if (isContainsNum(e)) {
+                        comicEpisode.setEpisode(e);
+                        break;
+                    }
+                }
+            }
             itemsTmp.add(new MultiData(1, R.layout.item_episode, 1, comicEpisode));
         }
         if (((Activity) mContext).isDestroyed()) {
@@ -203,11 +214,7 @@ public class KiKyoDetailClient {
                             sameIndex.add(multiDataTemp);
                         }
                     } else if (multiData.getData() instanceof ComicDetailBean && multiDataTemp.getData() instanceof ComicDetailBean) {
-                        ComicDetailBean comicBean = (ComicDetailBean) multiData.getData();
-                        ComicDetailBean comicBeanTemp = (ComicDetailBean) multiDataTemp.getData();
-                        if (comicBean.getTitle().equals(comicBeanTemp.getTitle())) {
-                            sameIndex.add(multiDataTemp);
-                        }
+                        sameIndex.add(multiDataTemp);
                     } else if (multiDataTemp.getTag() == 2) {
                         sameIndex.add(multiDataTemp);
                     }
@@ -227,5 +234,15 @@ public class KiKyoDetailClient {
                 listener.response(0, mItems);
             });
         }
+    }
+
+    public boolean isContainsNum(String input) {
+        int len = input.length();
+        for (int i = 0; i < len; i++) {
+            if (Character.isDigit(input.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 }

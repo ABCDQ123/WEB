@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mWebPreference.commit("web_aaooss");
                 mWebPreference.commit("web_ddmmcc");
                 mWebPreference.commit("web_ssoonn");
+                mWebPreference.commit("web_1manhua");
                 mWebPreference.commit("web_manhuafen");
                 mWebPreference.commit("web_manhuadui");
                 mWebPreference.commit("web_hicomic");

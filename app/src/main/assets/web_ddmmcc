@@ -45,7 +45,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/15/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/15/@!position@!/"
     },
     {
       "title": "剧情",
@@ -56,7 +56,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/5/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/5/@!position@!/"
     },
     {
       "title": "魔法",
@@ -67,7 +67,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/8/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/8/@!position@!/"
     },
     {
       "title": "科幻",
@@ -78,7 +78,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/4/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/4/@!position@!/"
     },
     {
       "title": "神鬼",
@@ -89,7 +89,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/9/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/9/@!position@!/"
     },
     {
       "title": "搞笑",
@@ -100,7 +100,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/2/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/2/@!position@!/"
     },
     {
       "title": "侦探",
@@ -111,7 +111,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/6/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/6/@!position@!/"
     },
     {
       "title": "校园",
@@ -122,7 +122,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/10/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/10/@!position@!/"
     },
     {
       "title": "惊悚",
@@ -133,7 +133,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/11/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/11/@!position@!/"
     },
     {
       "title": "性转",
@@ -144,7 +144,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/13/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/13/@!position@!/"
     },
     {
       "title": "日文",
@@ -155,7 +155,7 @@
       "imageEl": "select!img@attr!src",
       "introEl": "select!p@get!0@text",
       "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/24/@!position/"
+      "nextPageMethod": "loadUrl@#http://ddmmcc.com/lists/24/@!position@!/"
     }
   ],
   "search": {
