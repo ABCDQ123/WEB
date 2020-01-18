@@ -76,6 +76,11 @@ public class KiKyoSearchClient {
                 mWebView.getSettings().setMixedContentMode(android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
             }
             mWebView.addJavascriptInterface(new InJavaScriptLocalObj(listener), "java_obj");
+            if (null == mSearchBean.getAgent()) {
+
+            } else if (!mSearchBean.getAgent().isEmpty()) {
+                mWebView.getSettings().setUserAgentString(mSearchBean.getAgent());
+            }
             mWebView.setWebChromeClient(new WebChromeClient() {
                 @Override
                 public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
@@ -90,10 +95,8 @@ public class KiKyoSearchClient {
                     super.onPageFinished(view, url);
                     if (null == mSearchBean.getPrepareMethod()) {
 
-                    } else {
-                        if (!mSearchBean.getPrepareMethod().isEmpty()) {
-                            mWebView.loadUrl("" + mSearchBean.getPrepareMethod());
-                        }
+                    } else if (!mSearchBean.getPrepareMethod().isEmpty()) {
+                        mWebView.loadUrl("" + mSearchBean.getPrepareMethod());
                     }
                     view.loadUrl("javascript:window.java_obj.showHtml(document.getElementsByTagName('html')[0].innerHTML);");
                 }
@@ -137,6 +140,20 @@ public class KiKyoSearchClient {
             String title = ParseUtil.parseOption(element, mSearchBean.getTitleEl());
             String image = ParseUtil.parseOption(element, mSearchBean.getImageEl());
             String intro = ParseUtil.parseOption(element, mSearchBean.getIntroEl());
+            if (null == mSearchBean.getImageOption()) {
+
+            } else if (!mSearchBean.getImageOption().isEmpty()) {
+                String options[] = mSearchBean.getImageOption().split("@@");
+                for (String op : options) {
+                    String values[] = op.split("@#");
+                    if (values[0].equals("replace")) {
+                        image = image.replace(values[1], values[2]);
+                    } else if (values[0].equals("put")) {
+                        image = image + "" + values[1];
+                    }
+                }
+                image = image.trim();
+            }
             comicBean.setLink(link);
             comicBean.setTitle(title);
             comicBean.setImg(image);

@@ -5,9 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".MarioApplication"
@@ -19,18 +19,31 @@
         android:supportsRtl="true"
         android:theme="@style/UZMTheme.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.WebNewActivity"></activity>
-        <activity android:name=".ui.activity.ReadActivity" />
-        <activity android:name=".ui.activity.DetailActivity" />
-        <activity android:name=".ui.activity.SearchActivity" />
-        <activity android:name=".ui.activity.ClassifyActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.WebNewActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.ReadActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ClassifyActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

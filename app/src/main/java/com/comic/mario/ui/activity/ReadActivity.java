@@ -278,7 +278,32 @@ public class ReadActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @Override
     public void response(int notify, Object response) {
-        if (response != null && response instanceof ComicReadBean) {
+        if (notify == 1001) {
+            items.clear();
+            adapter.notifyDataSetChanged();
+
+            ArrayList<ComicReadBean> comicReadBean = (ArrayList<ComicReadBean>) response;
+            mIndex = 1;
+            mCount = comicReadBean.size();
+            tv_pagenumber_comic_read_activity.setText(mIndex + "/" + mCount);
+            tv_comicepisode_comic_read_activity.setText(mDetail.getTitle() + "" + mEpisodes.get(mEpisode).getEpisode());
+
+            items.add(new ReadView(this, 0, 0));
+            for (int i = 0; i < mCount; i++) {
+                items.add(new ReadView(this, i + 1, mCount));
+            }
+            items.add(new ReadView(this, 0, 0));
+            adapter.notifyDataSetChanged();
+            if (mHistIndex == 0) {
+                mHistIndex = 1;
+            }
+            vp_comic_read_activity.setCurrentItem(mHistIndex, false);
+            mHistIndex = 1;
+            reloading = false;
+            for (int i = 0; i < mCount; i++) {
+                items.get(i + 1).loadImage(comicReadBean.get(i).getImageUrl());
+            }
+        } else if (response != null && response instanceof ComicReadBean) {
             items.clear();
             adapter.notifyDataSetChanged();
             ComicReadBean comicReadBean = (ComicReadBean) response;

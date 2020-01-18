@@ -32,6 +32,8 @@ import com.facebook.imagepipeline.request.ImageRequest;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +94,11 @@ public class KiKyoReadClient {
                 mWebView.getSettings().setMixedContentMode(android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
             }
             mWebView.addJavascriptInterface(new InJavaScriptLocalObj(listener), "java_obj");
+            if (null == mReadBean.getAgent()) {
+
+            } else if (!mReadBean.getAgent().isEmpty()) {
+                mWebView.getSettings().setUserAgentString(mReadBean.getAgent());
+            }
             mWebView.setWebChromeClient(new WebChromeClient() {
 
                 @Override
@@ -114,10 +121,8 @@ public class KiKyoReadClient {
                     super.onPageFinished(view, url);
                     if (null == readBean.getPrepareMethod()) {
 
-                    } else {
-                        if (!readBean.getPrepareMethod().isEmpty()) {
-                            mWebView.loadUrl("" + readBean.getPrepareMethod());
-                        }
+                    } else if (!readBean.getPrepareMethod().isEmpty()) {
+                        mWebView.loadUrl("" + readBean.getPrepareMethod());
                     }
                     view.loadUrl("javascript:window.java_obj.showHtml(document.getElementsByTagName('html')[0].innerHTML);");
                 }
@@ -185,7 +190,59 @@ public class KiKyoReadClient {
         @JavascriptInterface
         public void showHtml(String html) {
             fixedThreadPool.submit(() -> {
-                parse(html, listener);
+                if (null == mReadBean.getImageLoadMethod()) {
+                    parse(html, listener);
+                } else if (mReadBean.getImageLoadMethod().isEmpty()) {
+                    parse(html, listener);
+                } else if (mReadBean.getImageLoadMethod().equals("all")) {
+                    parseAll(html, listener);
+                } else {
+                    parse(html, listener);
+                }
+            });
+        }
+    }
+
+    private void parseAll(String xml, ImpKiKyo listener) {
+        if (xml.equals("<head></head><body></body>") || xml.isEmpty())
+            return;
+        ArrayList<ComicReadBean> itemsTmp = new ArrayList<>();
+        Document document = Jsoup.parse(xml);
+        String intro = ParseUtil.parseOption(document, mReadBean.getIntroUrl());
+        Elements elements = document.select(mReadBean.getImageMainEl());
+        for (Element element : elements) {
+            String imageUrl = ParseUtil.parseOption(element, mReadBean.getImageUrl());
+            if (imageUrl == null || imageUrl.isEmpty())
+                return;
+            if (null == mReadBean.getImageOption()) {
+
+            } else if (!mReadBean.getImageOption().isEmpty()) {
+                String options[] = mReadBean.getImageOption().split("@@");
+                for (String op : options) {
+                    String values[] = op.split("@#");
+                    if (values[0].equals("replace")) {
+                        imageUrl = imageUrl.replace(values[1], values[2]);
+                    } else if (values[0].equals("put")) {
+                        imageUrl = imageUrl + "" + values[1];
+                    }
+                }
+                imageUrl = imageUrl.trim();
+            }
+            ComicReadBean comicReadBeanSingle = new ComicReadBean();
+            comicReadBeanSingle.setIndex(itemsTmp.size() + 1);
+            comicReadBeanSingle.setCount(elements.size() + 1);
+            comicReadBeanSingle.setImageUrl(imageUrl);
+            comicReadBeanSingle.setIntro(intro);
+            itemsTmp.add(comicReadBeanSingle);
+        }
+        if (itemsTmp.size() == 0) {
+            return;
+        }
+        if (mItems.size() == 0) {
+            mItems.clear();
+            mItems.addAll(itemsTmp);
+            ((Activity) mContext).runOnUiThread(() -> {
+                listener.response(1001, itemsTmp);
             });
         }
     }
@@ -198,6 +255,20 @@ public class KiKyoReadClient {
         String index = ParseUtil.parseOption(document, mReadBean.getIndexEl());
         String imageUrl = ParseUtil.parseOption(document, mReadBean.getImageUrl());
         String intro = ParseUtil.parseOption(document, mReadBean.getIndexEl());
+        if (null == mReadBean.getImageOption()) {
+
+        } else if (!mReadBean.getImageOption().isEmpty()) {
+            String options[] = mReadBean.getImageOption().split("@@");
+            for (String op : options) {
+                String values[] = op.split("@#");
+                if (values[0].equals("replace")) {
+                    imageUrl = imageUrl.replace(values[1], values[2]);
+                } else if (values[0].equals("put")) {
+                    imageUrl = imageUrl + "" + values[1];
+                }
+            }
+            imageUrl = imageUrl.trim();
+        }
         ComicReadBean comicReadBeanSingle = new ComicReadBean();
         if (isNumeric(index)) {
             comicReadBeanSingle.setIndexString(index);

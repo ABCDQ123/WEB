@@ -72,6 +72,7 @@
         android:id="@+id/rl_topview_comic_read_activity"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:visibility="invisible"
         android:background="@color/gray">
 
         <ImageView
@@ -103,6 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_gravity="bottom"
+        android:visibility="invisible"
         android:background="@color/gray"
         android:orientation="horizontal">
 

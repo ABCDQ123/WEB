@@ -1,0 +1,196 @@
+{
+  "web": "aaooss",
+  "rank": [
+    {
+      "title": "更新",
+      "url": "http://aaooss.com/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!1@text",
+      "prepareMethod": "",
+      "nextPageMethod": "javascript@#next_page()"
+    },
+    {
+      "title": "今日",
+      "url": "http://aaooss.com/top/",
+      "mainEl": "div.main ul#daily_block a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "javascript@#next_page()"
+    },
+    {
+      "title": "周榜",
+      "url": "http://aaooss.com/top/",
+      "mainEl": "div.main ul#week_block a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "javascript:change_block('week')",
+      "nextPageMethod": "javascript@#next_page()"
+    }
+  ],
+  "classify": [
+    {
+      "title": "冒险",
+      "url": "http://aaooss.com/lists/15/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/15/@!position/"
+    },
+    {
+      "title": "剧情",
+      "url": "http://aaooss.com/lists/5/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/5/@!position/"
+    },
+    {
+      "title": "魔法",
+      "url": "http://aaooss.com/lists/8/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/8/@!position/"
+    },
+    {
+      "title": "科幻",
+      "url": "http://aaooss.com/lists/4/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/4/@!position/"
+    },
+    {
+      "title": "神鬼",
+      "url": "http://aaooss.com/lists/9/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/9/@!position/"
+    },
+    {
+      "title": "搞笑",
+      "url": "http://aaooss.com/lists/2/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/2/@!position/"
+    },
+    {
+      "title": "侦探",
+      "url": "http://aaooss.com/lists/6/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/6/@!position/"
+    },
+    {
+      "title": "校园",
+      "url": "http://aaooss.com/lists/10/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/10/@!position/"
+    },
+    {
+      "title": "惊悚",
+      "url": "http://aaooss.com/lists/11/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/11/@!position/"
+    },
+    {
+      "title": "性转",
+      "url": "http://aaooss.com/lists/13/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/13/@!position/"
+    },
+    {
+      "title": "日文",
+      "url": "http://aaooss.com/lists/24/",
+      "mainEl": "div.main ul a.pic",
+      "linkEl": "attr!href",
+      "titleEl": "select!h3@text",
+      "imageEl": "select!img@attr!src",
+      "introEl": "select!p@get!0@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#http://aaooss.com/lists/24/@!position/"
+    }
+  ],
+  "search": {
+    "title": "搜索",
+    "url": "http://aaooss.com/comicsearch/s.aspx?s=",
+    "mainEl": "div.main ul a.pic",
+    "linkEl": "attr!href",
+    "titleEl": "select!h3@text",
+    "imageEl": "select!img@attr!src",
+    "introEl": "select!p@get!0@text",
+    "prepareMethod": "",
+    "nextPageMethod": ""
+  },
+  "detail": {
+    "title": "详情",
+    "detailMainEl": "div.main div.clearfix.section3 div.pic",
+    "titleEl": "select!h3@text",
+    "imageEl": "select!img@attr!src",
+    "authorEl": "select!p@get!0@text",
+    "classifyEl": "select!p@get!1@text",
+    "popularEl": "select!p@get!2@text",
+    "statusEl": "select!p@get!3@text",
+    "timeEl": "select!p@get!4@text",
+    "episodeMainEl": "div#list_block p.zlist a",
+    "episodeLinkEl": "attr!href",
+    "episodeEl": "text",
+    "episodeSort": "negative",
+    "prepareMethod": ""
+  },
+  "read": {
+    "jointUrl": "left@http://aaooss.com/app/v.aspx?t=",
+    "indexEl": "select!div.dv_bar1 div.dv_pageindex select#stPageChange option@last@attr!value",
+    "imageUrl": "select!div.dv_img img#imgCurr@attr!src",
+    "introUrl": "select!div.dv_bar1 span#spt2@text",
+    "prepareMethod": "",
+    "nextPageMethod": "javascript@#pageChange('next')"
+  }
+}

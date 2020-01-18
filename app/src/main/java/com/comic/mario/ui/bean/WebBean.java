@@ -61,6 +61,7 @@ public class WebBean implements Serializable {
 
     public static class SearchBean implements Serializable {
 
+        private String agent;
         private String title;
         private String url;
         private String mainEl;
@@ -70,6 +71,23 @@ public class WebBean implements Serializable {
         private String introEl;
         private String prepareMethod;
         private String nextPageMethod;
+        private String imageOption;
+
+        public String getImageOption() {
+            return imageOption;
+        }
+
+        public void setImageOption(String imageOption) {
+            this.imageOption = imageOption;
+        }
+
+        public String getAgent() {
+            return agent;
+        }
+
+        public void setAgent(String agent) {
+            this.agent = agent;
+        }
 
         public String getTitle() {
             return title;
@@ -146,6 +164,7 @@ public class WebBean implements Serializable {
 
     public static class DetailBean implements Serializable {
 
+        private String agent;
         private String title;
         private String detailMainEl;
         private String titleEl;
@@ -160,6 +179,32 @@ public class WebBean implements Serializable {
         private String episodeEl;
         private String episodeSort;
         private String prepareMethod;
+        private String jointUrl;
+        private String imageOption;
+
+        public String getImageOption() {
+            return imageOption;
+        }
+
+        public void setImageOption(String imageOption) {
+            this.imageOption = imageOption;
+        }
+
+        public String getAgent() {
+            return agent;
+        }
+
+        public void setAgent(String agent) {
+            this.agent = agent;
+        }
+
+        public String getJointUrl() {
+            return jointUrl;
+        }
+
+        public void setJointUrl(String jointUrl) {
+            this.jointUrl = jointUrl;
+        }
 
         public String getEpisodeSort() {
             return episodeSort;
@@ -276,12 +321,48 @@ public class WebBean implements Serializable {
 
     public static class ReadBean implements Serializable {
 
+        private String agent;
+        private String imageLoadMethod;
+        private String imageMainEl;
         private String jointUrl;
         private String indexEl;
         private String imageUrl;
         private String introUrl;
         private String prepareMethod;
         private String nextPageMethod;
+        private String imageOption;
+
+        public String getImageMainEl() {
+            return imageMainEl;
+        }
+
+        public void setImageMainEl(String imageMainEl) {
+            this.imageMainEl = imageMainEl;
+        }
+
+        public String getImageLoadMethod() {
+            return imageLoadMethod;
+        }
+
+        public void setImageLoadMethod(String imageLoadMethod) {
+            this.imageLoadMethod = imageLoadMethod;
+        }
+
+        public String getImageOption() {
+            return imageOption;
+        }
+
+        public void setImageOption(String imageOption) {
+            this.imageOption = imageOption;
+        }
+
+        public String getAgent() {
+            return agent;
+        }
+
+        public void setAgent(String agent) {
+            this.agent = agent;
+        }
 
         public String getJointUrl() {
             return jointUrl;
@@ -334,6 +415,7 @@ public class WebBean implements Serializable {
 
     public static class RankBean implements Serializable {
 
+        private String agent;
         private String title;
         private String url;
         private String mainEl;
@@ -343,6 +425,23 @@ public class WebBean implements Serializable {
         private String introEl;
         private String prepareMethod;
         private String nextPageMethod;
+        private String imageOption;
+
+        public String getImageOption() {
+            return imageOption;
+        }
+
+        public void setImageOption(String imageOption) {
+            this.imageOption = imageOption;
+        }
+
+        public String getAgent() {
+            return agent;
+        }
+
+        public void setAgent(String agent) {
+            this.agent = agent;
+        }
 
         public String getTitle() {
             return title;
@@ -419,6 +518,7 @@ public class WebBean implements Serializable {
 
     public static class ClassifyBean implements Serializable {
 
+        private String agent;
         private String title;
         private String url;
         private String mainEl;
@@ -428,6 +528,23 @@ public class WebBean implements Serializable {
         private String introEl;
         private String prepareMethod;
         private String nextPageMethod;
+        private String imageOption;
+
+        public String getImageOption() {
+            return imageOption;
+        }
+
+        public void setImageOption(String imageOption) {
+            this.imageOption = imageOption;
+        }
+
+        public String getAgent() {
+            return agent;
+        }
+
+        public void setAgent(String agent) {
+            this.agent = agent;
+        }
 
         public String getTitle() {
             return title;

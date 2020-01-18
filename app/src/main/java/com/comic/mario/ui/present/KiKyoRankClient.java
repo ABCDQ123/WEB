@@ -77,6 +77,11 @@ public class KiKyoRankClient {
                 mWebView.getSettings().setMixedContentMode(android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
             }
             mWebView.addJavascriptInterface(new InJavaScriptLocalObj(listener), "java_obj");
+            if (null == mRankBean.getAgent()) {
+
+            } else if (!mRankBean.getAgent().isEmpty()) {
+                mWebView.getSettings().setUserAgentString(mRankBean.getAgent());
+            }
             mWebView.setWebChromeClient(new WebChromeClient() {
 
                 @Override
@@ -97,10 +102,8 @@ public class KiKyoRankClient {
                     super.onPageFinished(view, url);
                     if (null == mRankBean.getPrepareMethod()) {
 
-                    } else {
-                        if (!mRankBean.getPrepareMethod().isEmpty()) {
-                            mWebView.loadUrl("" + mRankBean.getPrepareMethod());
-                        }
+                    } else if (!mRankBean.getPrepareMethod().isEmpty()) {
+                        mWebView.loadUrl("" + mRankBean.getPrepareMethod());
                     }
                     view.loadUrl("javascript:window.java_obj.showHtml(document.getElementsByTagName('html')[0].innerHTML);");
                 }
@@ -160,6 +163,20 @@ public class KiKyoRankClient {
             String link = ParseUtil.parseOption(element, mRankBean.getLinkEl());
             String title = ParseUtil.parseOption(element, mRankBean.getTitleEl());
             String image = ParseUtil.parseOption(element, mRankBean.getImageEl());
+            if (null == mRankBean.getImageOption()) {
+
+            } else if (!mRankBean.getImageOption().isEmpty()) {
+                String options[] = mRankBean.getImageOption().split("@@");
+                for (String op : options) {
+                    String values[] = op.split("@#");
+                    if (values[0].equals("replace")) {
+                        image = image.replace(values[1], values[2]);
+                    } else if (values[0].equals("put")) {
+                        image = image + "" + values[1];
+                    }
+                }
+                image = image.trim();
+            }
             String intro = ParseUtil.parseOption(element, mRankBean.getIntroEl());
             comicBean.setLink(link);
             comicBean.setTitle(title);

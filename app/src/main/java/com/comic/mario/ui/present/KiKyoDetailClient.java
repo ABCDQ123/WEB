@@ -77,6 +77,11 @@ public class KiKyoDetailClient {
                 mWebView.getSettings().setMixedContentMode(android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
             }
             mWebView.addJavascriptInterface(new InJavaScriptLocalObj(listener), "java_obj");
+            if (null == mDetailBean.getAgent()) {
+
+            } else if (!mDetailBean.getAgent().isEmpty()) {
+                mWebView.getSettings().setUserAgentString(mDetailBean.getAgent());
+            }
             mWebView.setWebChromeClient(new WebChromeClient() {
                 @Override
                 public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
@@ -91,10 +96,8 @@ public class KiKyoDetailClient {
                     super.onPageFinished(view, url);
                     if (null == mDetailBean.getPrepareMethod()) {
 
-                    } else {
-                        if (!mDetailBean.getPrepareMethod().isEmpty()) {
-                            mWebView.loadUrl("" + mDetailBean.getPrepareMethod());
-                        }
+                    } else if (!mDetailBean.getPrepareMethod().isEmpty()) {
+                        mWebView.loadUrl("" + mDetailBean.getPrepareMethod());
                     }
                     view.loadUrl("javascript:window.java_obj.showHtml(document.getElementsByTagName('html')[0].innerHTML);");
                 }
@@ -107,7 +110,19 @@ public class KiKyoDetailClient {
             });
         }
         position = 1;
-        mWebView.loadUrl(url);
+        if (null == mDetailBean.getJointUrl()) {
+            mWebView.loadUrl(url);
+        } else if (!mDetailBean.getJointUrl().isEmpty()) {
+            String site = mDetailBean.getJointUrl().split("@")[0];
+            String joinUrl = mDetailBean.getJointUrl().split("@")[1];
+            if (site.equals("left")) {
+                mWebView.loadUrl(joinUrl + url);
+            } else if (site.equals("right")) {
+                mWebView.loadUrl(url + joinUrl);
+            }
+        } else {
+            mWebView.loadUrl(url);
+        }
     }
 
     private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(1);
@@ -141,6 +156,20 @@ public class KiKyoDetailClient {
         String pop = ParseUtil.parseOption(elementsDetail, mDetailBean.getPopularEl());
         String status = ParseUtil.parseOption(elementsDetail, mDetailBean.getStatusEl());
         String time = ParseUtil.parseOption(elementsDetail, mDetailBean.getTimeEl());
+        if (null == mDetailBean.getImageOption()) {
+
+        } else if (!mDetailBean.getImageOption().isEmpty()) {
+            String options[] = mDetailBean.getImageOption().split("@@");
+            for (String op : options) {
+                String values[] = op.split("@#");
+                if (values[0].equals("replace")) {
+                    image = image.replace(values[1], values[2]);
+                } else if (values[0].equals("put")) {
+                    image = image + "" + values[1];
+                }
+            }
+            image = image.trim();
+        }
         comicDetailBean.setImg(image);
         comicDetailBean.setTitle(title);
         comicDetailBean.setAuthor(author);
