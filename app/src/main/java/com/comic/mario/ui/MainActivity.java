@@ -245,7 +245,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             });
             String webName = string;
             holder.itemView.setOnLongClickListener(v -> {
-                if (!webName.equals("ddmmcc") && !webName.equals("ssoonn")) {
+                if (!webName.equals("aaooss") && !webName.equals("ddmmcc") && !webName.equals("ssoonn") &&
+                        !webName.equals("1manhua") && !webName.equals("manhuafen") &&
+                        !webName.equals("manhuadui") && !webName.equals("hicomic")) {
                     messageDialog.setText("删除：" + webName, "确定", "取消");
                     messageDialog.setOnClick((MessageDialog.MessageDialogInterface) () -> {
                         File file = new File(MarioApplication.WebFilePath + "/web_" + webName);
