@@ -197,6 +197,9 @@ public class KiKyoDetailClient {
                         break;
                     }
                 }
+                if (comicEpisode.getEpisode() == null) {
+                    comicEpisode.setEpisode(episode);
+                }
             }
             itemsTmp.add(new MultiData(1, R.layout.item_episode, 1, comicEpisode));
         }
