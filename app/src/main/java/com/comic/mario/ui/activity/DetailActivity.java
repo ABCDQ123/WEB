@@ -199,6 +199,7 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
     }
 
     private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(1);
+    private boolean isReversed = false;
 
     private void charge(ArrayList response) {
         fixedThreadPool.submit(() -> {
@@ -232,21 +233,24 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
                     return;
                 }
                 runOnUiThread(() -> {
-                    if (null == mWebBean.getDetail().getEpisodeSort()) {
+                    if (!isReversed) {
+                        isReversed = true;
+                        if (null == mWebBean.getDetail().getEpisodeSort()) {
 
-                    } else if (mWebBean.getDetail().getEpisodeSort().isEmpty()) {
+                        } else if (mWebBean.getDetail().getEpisodeSort().isEmpty()) {
 
-                    } else if (mWebBean.getDetail().getEpisodeSort().equals("true")) {
-                        ArrayList<MultiData> itemSort = new ArrayList<>();
-                        multiDataDetail = items.get(0);
-                        itemSort.addAll(items);
-                        itemSort.remove(0);
-                        itemSort.remove(0);
-                        Collections.reverse(itemSort);
-                        items.clear();
-                        items.add(multiDataDetail);
-                        items.add(new MultiData(2, R.layout.item_episode_sort, 4, null));
-                        items.addAll(itemSort);
+                        } else if (mWebBean.getDetail().getEpisodeSort().equals("true")) {
+                            ArrayList<MultiData> itemSort = new ArrayList<>();
+                            multiDataDetail = items.get(0);
+                            itemSort.addAll(items);
+                            itemSort.remove(0);
+                            itemSort.remove(0);
+                            Collections.reverse(itemSort);
+                            items.clear();
+                            items.add(multiDataDetail);
+                            items.add(new MultiData(2, R.layout.item_episode_sort, 4, null));
+                            items.addAll(itemSort);
+                        }
                     }
                     adapter.notifyDataSetChanged();
                 });
