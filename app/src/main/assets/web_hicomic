@@ -305,7 +305,7 @@
     "episodeMainEl": "section.chapter div.chapter_top div.chapter_top_content section",
     "episodeLinkEl": "select!a@attr!href",
     "episodeEl": "select!a span@text",
-    "episodeSort": "negative",
+    "episodeSort": "true",
     "prepareMethod": "",
     "imageOption": "replace@#//@#http://@@replace@#!p_d_c@# "
   },

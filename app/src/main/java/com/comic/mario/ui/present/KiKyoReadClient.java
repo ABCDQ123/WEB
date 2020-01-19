@@ -307,6 +307,9 @@ public class KiKyoReadClient {
             for (ComicReadBean comicReadBean : sameIndex) {
                 itemsTmp.remove(comicReadBean);
             }
+            if (itemsTmp.size() == 0) {
+                return;
+            }
             if (itemsTmp.size() != 0 && mItems.size() != 0 && mItems.get(0).getIndex() == 1) {
                 itemsTmp.get(0).setIndex(mItems.size() + 1);
             }

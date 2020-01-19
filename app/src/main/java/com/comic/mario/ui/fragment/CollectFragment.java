@@ -140,6 +140,9 @@ public class CollectFragment extends LazyFragment implements MutiViewHolder {
                     }
                     Collections.reverse(items);
                 }
+                if (null == getActivity()) {
+                    return;
+                }
                 getActivity().runOnUiThread(() -> {
                     adapter.notifyDataSetChanged();
                     srl_rank_fragment.setRefreshing(false);

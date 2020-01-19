@@ -35,6 +35,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 public class DetailActivity extends AppCompatActivity implements MutiViewHolder, ImpKiKyo {
@@ -196,8 +198,10 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
 
     }
 
+    private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(1);
+
     private void charge(ArrayList response) {
-        new Thread(() -> {
+        fixedThreadPool.submit(() -> {
             try {
                 if (null == comicPreference.getHist())
                     return;
@@ -222,13 +226,32 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
                     }
                 }
             } catch (JSONException e) {
-
+                e.printStackTrace();
             } finally {
+                if (isDestroyed()) {
+                    return;
+                }
                 runOnUiThread(() -> {
+                    if (null == mWebBean.getDetail().getEpisodeSort()) {
+
+                    } else if (mWebBean.getDetail().getEpisodeSort().isEmpty()) {
+
+                    } else if (mWebBean.getDetail().getEpisodeSort().equals("true")) {
+                        ArrayList<MultiData> itemSort = new ArrayList<>();
+                        multiDataDetail = items.get(0);
+                        itemSort.addAll(items);
+                        itemSort.remove(0);
+                        itemSort.remove(0);
+                        Collections.reverse(itemSort);
+                        items.clear();
+                        items.add(multiDataDetail);
+                        items.add(new MultiData(2, R.layout.item_episode_sort, 4, null));
+                        items.addAll(itemSort);
+                    }
                     adapter.notifyDataSetChanged();
                 });
             }
-        }).start();
+        });
     }
 
 }

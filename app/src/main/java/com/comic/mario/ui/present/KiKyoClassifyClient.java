@@ -205,6 +205,9 @@ public class KiKyoClassifyClient {
             for (MultiData multiData : sameIndex) {
                 itemsTmp.remove(multiData);
             }
+            if (itemsTmp.size() == 0) {
+                return;
+            }
             ((Activity) mContext).runOnUiThread(() -> {
                 int notify = mItems.size() - 1;
                 mItems.addAll(itemsTmp);

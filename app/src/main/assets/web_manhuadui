@@ -193,7 +193,7 @@
     "episodeMainEl": "div.Introduct div.img_001.globalPadding.globaltop10.globalbottom10 div#list_block div.comic-chapters div.chapter-body.clearfix div.chapter-warp ul a",
     "episodeLinkEl": "attr!href",
     "episodeEl": "select!span@text",
-    "episodeSort": "negative",
+    "episodeSort": "true",
     "prepareMethod": ""
   },
   "read": {

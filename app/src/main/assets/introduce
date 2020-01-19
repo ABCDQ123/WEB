@@ -67,6 +67,7 @@
     "timeEl": "select!p@get!4@text",
     "imageOption": "replace@#//@#http://@@put@#.jpg",//图片链接处理 replace替换 put添加 @@操作 @#参数
     //集数
+    "episodeSort": "true",
     "episodeMainEl": "div#list_block p.zlist a",
     "episodeEl": "attr!href"
   },

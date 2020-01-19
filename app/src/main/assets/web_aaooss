@@ -182,7 +182,7 @@
     "episodeMainEl": "div#list_block p.zlist a",
     "episodeLinkEl": "attr!href",
     "episodeEl": "text",
-    "episodeSort": "negative",
+    "episodeSort": "false",
     "prepareMethod": ""
   },
   "read": {

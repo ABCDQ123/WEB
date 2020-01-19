@@ -211,7 +211,7 @@
     "episodeMainEl": "div.cVolList ul li a",
     "episodeLinkEl": "attr!href",
     "episodeEl": "text",
-    "episodeSort": "negative",
+    "episodeSort": "false",
     "prepareMethod": ""
   },
   "read": {
