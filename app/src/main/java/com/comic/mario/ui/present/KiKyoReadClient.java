@@ -263,6 +263,8 @@ public class KiKyoReadClient {
         String index = ParseUtil.parseOption(document, mReadBean.getIndexEl());
         String imageUrl = ParseUtil.parseOption(document, mReadBean.getImageUrl());
         String intro = ParseUtil.parseOption(document, mReadBean.getIndexEl());
+        if (imageUrl == null || imageUrl.isEmpty())
+            return;
         if (null == mReadBean.getImageOption()) {
 
         } else if (!mReadBean.getImageOption().isEmpty()) {
