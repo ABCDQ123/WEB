@@ -3,11 +3,6 @@
 ** ========EL
 ** html解析操作 <div class="div" id="img"> select.div 或 select#img
 ** @区分操作(select@attr)  !区分操作与参数(get!0)
-**
-**========nextPageMethod
-** 数据翻页
-** @#区分操作(javascript或loadUrl) @!区分参数(仅loadUrl时可用 利用url+position加载)
-**
 */
 
 {

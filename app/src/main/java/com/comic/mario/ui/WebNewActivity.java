@@ -3,6 +3,7 @@ package com.comic.mario.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -33,6 +34,7 @@ public class WebNewActivity extends AppCompatActivity {
 
     private ImageView ig_finish_webnew_activity;
     private TextView ig_sure_webnew_activity;
+    private TextView ig_intro_webnew_activity;
 
     private EditText et_content_webnew_activity;
 
@@ -42,10 +44,14 @@ public class WebNewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web_new);
         ig_finish_webnew_activity = findViewById(R.id.ig_finish_webnew_activity);
         ig_sure_webnew_activity = findViewById(R.id.ig_sure_webnew_activity);
+        ig_intro_webnew_activity = findViewById(R.id.ig_intro_webnew_activity);
         et_content_webnew_activity = findViewById(R.id.et_content_webnew_activity);
 
         ig_finish_webnew_activity.setOnClickListener(v -> {
             finish();
+        });
+        ig_intro_webnew_activity.setOnClickListener(v -> {
+            startActivity(new Intent(this, WebIntroActivity.class));
         });
         ig_sure_webnew_activity.setOnClickListener(v -> {
             if (et_content_webnew_activity.getText().toString().trim().isEmpty())

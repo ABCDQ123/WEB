@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.WebIntroActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_web_intro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/txt_gray"
+            android:textSize="14sp"></TextView>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/tv_finish"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="12dp"
+        android:src="@drawable/abc_vector_test"></ImageView>
+</RelativeLayout>

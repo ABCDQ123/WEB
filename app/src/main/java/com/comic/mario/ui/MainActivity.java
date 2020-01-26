@@ -46,6 +46,7 @@ import com.google.gson.Gson;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView ig_type_main_activity;
     private DrawerLayout dl_main_activity;
     private LinearLayout ll_put_web_main_activity;
+    private TextView ig_put_web;
+    private TextView ig_gone_web;
 
     private TabLayout tl_main_activity;
     private ViewPager vp_main_activity;
@@ -91,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ig_search_main_activity = findViewById(R.id.ig_search_main_activity);
         dl_main_activity = findViewById(R.id.dl_main_activity);
         ll_put_web_main_activity = findViewById(R.id.ll_put_web_main_activity);
+        ig_put_web = findViewById(R.id.ig_put_web);
+        ig_gone_web = findViewById(R.id.ig_gone_web);
         ig_type_main_activity = findViewById(R.id.ig_type_main_activity);
         rv_draw_main_activity = findViewById(R.id.rv_draw_main_activity);
 
@@ -98,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ig_search_main_activity.setOnClickListener(this);
         ig_type_main_activity.setOnClickListener(this);
         ll_put_web_main_activity.setOnClickListener(this);
+        ig_put_web.setOnClickListener(this);
+        ig_gone_web.setOnClickListener(this);
         messageDialog = new MessageDialog(this);
 
         requestPermissions();
@@ -248,13 +255,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (!webName.equals("aaooss") && !webName.equals("ddmmcc") && !webName.equals("ssoonn") &&
                         !webName.equals("1manhua") && !webName.equals("manhuafen") &&
                         !webName.equals("manhuadui") && !webName.equals("hicomic")) {
-                    messageDialog.setText("删除：" + webName, "确定", "取消");
+                    messageDialog.setText("" + webName, "删除", "修改");
                     messageDialog.setOnClick((MessageDialog.MessageDialogInterface) () -> {
                         File file = new File(MarioApplication.WebFilePath + "/web_" + webName);
                         file.delete();
                         initData();
                     });
+                    messageDialog.setOnClick((MessageDialog.MessageDialogCancelInterface) () -> {
+                        Intent intent = new Intent(this, WebEditActivity.class);
+                        intent.putExtra("web", "/web_" + webName);
+                        startActivity(intent);
+                    });
                     messageDialog.show();
+                } else {
+                    Toast.makeText(this, "内置Web，不能修改", Toast.LENGTH_SHORT).show();
                 }
                 return false;
             });
@@ -273,9 +287,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, ClassifyActivity.class);
             intent.putExtra("classify", (Serializable) mWebBean);
             startActivity(intent);
-        } else if (v.getId() == R.id.ll_put_web_main_activity) {
+        } else if (v.getId() == R.id.ig_put_web) {
             Intent intent = new Intent(this, WebNewActivity.class);
             startActivity(intent);
+        } else if (v.getId() == R.id.ig_gone_web) {
+            List<MultiData> itemRemove = new ArrayList<>();
+            for (MultiData multiData : listItems) {
+                String string = "" + multiData.getData();
+                if (string.equals("web_aaooss")) {
+                    itemRemove.add(multiData);
+                } else if (string.equals("web_ddmmcc")) {
+                    itemRemove.add(multiData);
+                } else if (string.equals("web_ssoonn")) {
+                    itemRemove.add(multiData);
+                } else if (string.equals("web_1manhua")) {
+                    itemRemove.add(multiData);
+                } else if (string.equals("web_manhuafen")) {
+                    itemRemove.add(multiData);
+                } else if (string.equals("web_manhuadui")) {
+                    itemRemove.add(multiData);
+                } else if (string.equals("web_hicomic")) {
+                    itemRemove.add(multiData);
+                }
+            }
+            for (MultiData multiData : itemRemove) {
+                listItems.remove(multiData);
+            }
+            if (itemRemove.size() == 0) {
+                String files[] = mWebPreference.get().split("@");
+                for (int i = files.length - 1; i >= 0; i--) {
+                    listItems.add(1, new MultiData(1, R.layout.item_drawlayout, files[i]));
+                }
+                ig_gone_web.setText("隐藏内置");
+            } else {
+                itemRemove.clear();
+                ig_gone_web.setText("显示内置");
+            }
+            adapter.notifyDataSetChanged();
         }
     }
 

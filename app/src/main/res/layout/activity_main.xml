@@ -81,9 +81,17 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="220dp"
+        android:layout_width="260dp"
         android:layout_height="match_parent"
         android:layout_gravity="start">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_draw_main_activity"
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ll_put_web_main_activity"
+            android:background="@color/white"
+            android:overScrollMode="never"></androidx.recyclerview.widget.RecyclerView>
 
         <LinearLayout
             android:id="@+id/ll_put_web_main_activity"
@@ -94,31 +102,32 @@
             android:clickable="true"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="4dp"
-                android:padding="16dp"
-                android:src="@drawable/switchaddress"></ImageView>
-
             <TextView
+                android:id="@+id/ig_put_web"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
-                android:gravity="center_vertical"
-                android:text="网站"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="增添网站"
+                android:textColor="@color/txt_gray"
+                android:textSize="14sp"></TextView>
+
+            <TextView
+                android:id="@+id/ig_gone_web"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="隐藏内置"
                 android:textColor="@color/txt_gray"
                 android:textSize="14sp"></TextView>
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_draw_main_activity"
-            android:layout_width="220dp"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/ll_put_web_main_activity"
-            android:background="@color/white"
-            android:overScrollMode="never"></androidx.recyclerview.widget.RecyclerView>
     </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

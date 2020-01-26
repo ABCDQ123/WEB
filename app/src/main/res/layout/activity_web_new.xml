@@ -21,6 +21,18 @@
             android:src="@drawable/abc_vector_test"></ImageView>
 
         <TextView
+            android:id="@+id/ig_intro_webnew_activity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="50dp"
+            android:gravity="center"
+            android:text="说明"
+            android:textColor="@color/white"
+            android:textSize="14sp"></TextView>
+
+        <TextView
             android:id="@+id/ig_sure_webnew_activity"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -37,10 +49,10 @@
         android:id="@+id/et_content_webnew_activity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
         android:background="@color/white"
         android:gravity="left|top"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:textSize="14sp"></EditText>
 
 </LinearLayout>
