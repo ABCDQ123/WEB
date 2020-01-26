@@ -19,7 +19,7 @@ public class ComicPreference {
 
     private final String Collect_File = "Collect.json";
     private final String History_File = "History.json";
-    private final String Data_FilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Mario/MSource/Json";
+    private final String Data_FilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "ComicMario/MSource/Json";
 
     public ComicPreference(Context context) {
         mContext = context;
