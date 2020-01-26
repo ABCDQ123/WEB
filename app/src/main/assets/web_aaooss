@@ -187,7 +187,7 @@
   },
   "read": {
     "jointUrl": "left@http://aaooss.com/app/v.aspx?t=",
-    "indexEl": "select!div.dv_bar1 div.dv_pageindex select#stPageChange option@last@attr!value",
+    "indexEl": "select!div.dv_bar1 div.dv_pageindex@text",
     "imageUrl": "select!div.dv_img img#imgCurr@attr!src",
     "introUrl": "select!div.dv_bar1 span#spt2@text",
     "prepareMethod": "",
