@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 
@@ -52,6 +53,9 @@ public class ClassifyActivity extends AppCompatActivity implements ViewPager.OnP
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classify);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            getWindow().getDecorView().setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
+        }
         SystemUtil.setStatusBarTransparent(getWindow());
         SystemUtil.setMyStatusbar(this, findViewById(R.id.v_status_classify_activity));
         ig_finish_classify_activity = findViewById(R.id.ig_finish_classify_activity);

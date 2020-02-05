@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,6 +78,9 @@ public class DetailActivity extends AppCompatActivity implements MutiViewHolder,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            getWindow().getDecorView().setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
+        }
         ig_finish_comic_detail_activity = findViewById(R.id.ig_finish_comic_detail_activity);
         tv_title_comic_detail_activity = findViewById(R.id.tv_title_comic_detail_activity);
         tv_collect_comic_detail_activity = findViewById(R.id.tv_collect_comic_detail_activity);

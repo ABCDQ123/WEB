@@ -100,6 +100,9 @@ public class ReadActivity extends AppCompatActivity implements ViewPager.OnPageC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            getWindow().getDecorView().setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
+        }
         ig_finish_comic_read_activity = findViewById(R.id.ig_finish_comic_read_activity);
         tv_comicname_comic_read_activity = findViewById(R.id.tv_comicname_comic_read_activity);
         v_touch_comic_read_activity = findViewById(R.id.v_touch_comic_read_activity);

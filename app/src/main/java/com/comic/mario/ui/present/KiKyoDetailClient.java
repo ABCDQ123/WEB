@@ -3,6 +3,7 @@ package com.comic.mario.ui.present;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.webkit.JavascriptInterface;
@@ -66,6 +67,9 @@ public class KiKyoDetailClient {
             mDetailBean = detailBean;
             mItems = items;
             mWebView = new WebView(context);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                mWebView.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
+            }
             mWebView.getSettings().setJavaScriptEnabled(true);
             mWebView.getSettings().setLoadsImagesAutomatically(true);
             mWebView.getSettings().setBlockNetworkImage(false);
