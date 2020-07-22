@@ -110,7 +110,19 @@
                 android:layout_weight="1"
                 android:background="?android:attr/selectableItemBackground"
                 android:gravity="center"
-                android:text="增添网站"
+                android:text="添加网站"
+                android:textColor="@color/txt_gray"
+                android:textSize="14sp"></TextView>
+
+            <TextView
+                android:id="@+id/ig_local_web"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="本地浏览"
                 android:textColor="@color/txt_gray"
                 android:textSize="14sp"></TextView>
 

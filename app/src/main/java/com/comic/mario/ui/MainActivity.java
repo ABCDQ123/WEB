@@ -27,6 +27,7 @@ import com.comic.mario.MarioApplication;
 import com.comic.mario.R;
 import com.comic.mario.ui.activity.ClassifyActivity;
 import com.comic.mario.ui.activity.DetailActivity;
+import com.comic.mario.ui.activity.LocalActivity;
 import com.comic.mario.ui.activity.SearchActivity;
 import com.comic.mario.ui.bean.WebBean;
 import com.comic.mario.ui.fragment.CollectFragment;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout ll_put_web_main_activity;
     private TextView ig_put_web;
     private TextView ig_gone_web;
+    private TextView ig_local_web;
 
     private TabLayout tl_main_activity;
     private ViewPager vp_main_activity;
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ll_put_web_main_activity = findViewById(R.id.ll_put_web_main_activity);
         ig_put_web = findViewById(R.id.ig_put_web);
         ig_gone_web = findViewById(R.id.ig_gone_web);
+        ig_local_web = findViewById(R.id.ig_local_web);
         ig_type_main_activity = findViewById(R.id.ig_type_main_activity);
         rv_draw_main_activity = findViewById(R.id.rv_draw_main_activity);
 
@@ -108,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ll_put_web_main_activity.setOnClickListener(this);
         ig_put_web.setOnClickListener(this);
         ig_gone_web.setOnClickListener(this);
+        ig_local_web.setOnClickListener(this);
         messageDialog = new MessageDialog(this);
 
         requestPermissions();
@@ -116,74 +120,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        new Thread(() -> {
-            mWebBean = null;
-            mCurrentWeb = "";
-            if (mWebPreference == null) {
-                mWebPreference = new WebPreference(this);
-                mWebPreference.remove();
+        mWebBean = null;
+        mCurrentWeb = "";
+        if (mWebPreference == null) {
+            mWebPreference = new WebPreference(this);
+            mWebPreference.remove();
+        }
+        if (mWebPreference.get() == null) {
+            mWebPreference.commit("web_ssoonn");
+            mWebPreference.commit("web_1manhua");
+            mWebPreference.commit("web_hhimm");
+            mWebPreference.commit("web_manhuafen");
+            mWebPreference.commit("web_manhuadui");
+            mWebPreference.commit("web_hicomic");
+        }
+        List<String> ohterFiles = Util.getFilesAllName(MarioApplication.WebFilePath);//外部文件名列表
+        String errorFile = "";//发生错误时记录错误的外部文件名
+        try {//初始化外部Web文件
+            mCurrentWeb = mWebPreference.getSelect();
+            if (mWebBean == null && ohterFiles != null || mCurrentWeb.isEmpty()) {
+                for (String string : ohterFiles) {
+                    if (string.equals(mCurrentWeb)) {
+                        errorFile = string;
+                        mCurrentWeb = string;
+                        mWebBean = new Gson().fromJson(Util.readTxtFile(MarioApplication.WebFilePath + "/" + string), WebBean.class);
+                    }
+                }
             }
-            if (mWebPreference.get() == null) {
-                mWebPreference.commit("web_aaooss");
-                mWebPreference.commit("web_ddmmcc");
-                mWebPreference.commit("web_ssoonn");
-                mWebPreference.commit("web_1manhua");
-                mWebPreference.commit("web_manhuafen");
-                mWebPreference.commit("web_manhuadui");
-                mWebPreference.commit("web_hicomic");
-            }
-            List<String> ohterFiles = Util.getFilesAllName(MarioApplication.WebFilePath);//外部文件名列表
-            String errorFile = "";//发生错误时记录错误的外部文件名
-            try {//初始化外部Web文件
+        } catch (Exception e) {
+            File file = new File(MarioApplication.WebFilePath + "/" + errorFile);
+            file.delete();
+            Toast.makeText(this, "所选项目发生错误，已删除", Toast.LENGTH_SHORT).show();
+        } finally {//初始化APP内部默认Web
+            String files[] = mWebPreference.get().split("@");
+            if (mWebBean == null || mWebBean.getRank() == null || mWebBean.getRank().size() == 0 || mCurrentWeb.isEmpty()) {//初始化app内部web文件
                 mCurrentWeb = mWebPreference.getSelect();
-                if (mWebBean == null && ohterFiles != null || mCurrentWeb.isEmpty()) {
-                    for (String string : ohterFiles) {
-                        if (string.equals(mCurrentWeb)) {
-                            errorFile = string;
-                            mCurrentWeb = string;
-                            mWebBean = new Gson().fromJson(Util.readTxtFile(MarioApplication.WebFilePath + "/" + string), WebBean.class);
-                        }
+                for (String string : files) {
+                    if (string.equals(mCurrentWeb)) {
+                        mCurrentWeb = string;
+                        mWebBean = new Gson().fromJson(Util.getJsonfromAsset(this, string), WebBean.class);
                     }
                 }
-            } catch (Exception e) {
-                File file = new File(MarioApplication.WebFilePath + "/" + errorFile);
-                file.delete();
-                runOnUiThread(() -> {
-                    Toast.makeText(this, "所选项目发生错误，已删除", Toast.LENGTH_SHORT).show();
-                });
-            } finally {//初始化APP内部默认Web
-                String files[] = mWebPreference.get().split("@");
-                if (mWebBean == null || mWebBean.getRank() == null || mWebBean.getRank().size() == 0 || mCurrentWeb.isEmpty()) {//初始化app内部web文件
-                    mCurrentWeb = mWebPreference.getSelect();
-                    for (String string : files) {
-                        if (string.equals(mCurrentWeb)) {
-                            mCurrentWeb = string;
-                            mWebBean = new Gson().fromJson(Util.getJsonfromAsset(this, string), WebBean.class);
-                        }
-                    }
-                }
-                if (mWebBean == null || mWebBean.getRank() == null || mWebBean.getRank().size() == 0 || mCurrentWeb.isEmpty()) {//文件加载出问题时
-                    mCurrentWeb = "web_ssoonn";
-                    mWebBean = new Gson().fromJson(Util.getJsonfromAsset(this, mCurrentWeb), WebBean.class);
-                }
-                runOnUiThread(() -> {
-                    //viewpager数据
-                    pagerItems.clear();
-                    pagerItems.addAll(mWebBean.getRank());
-                    //recyclerView数据
-                    listItems.clear();
-                    listItems.add(new MultiData(0, R.layout.item_drawlayout_head, null));
-                    for (String string : files) {
-                        listItems.add(new MultiData(1, R.layout.item_drawlayout, string));
-                    }
-                    for (String string : ohterFiles) {
-                        listItems.add(new MultiData(1, R.layout.item_drawlayout, string));
-                    }
-                    initPager();
-                    initRecycler();
-                });
             }
-        }).start();
+            if (mWebBean == null || mWebBean.getRank() == null || mWebBean.getRank().size() == 0 || mCurrentWeb.isEmpty()) {//文件加载出问题时
+                mCurrentWeb = "web_ssoonn";
+                mWebBean = new Gson().fromJson(Util.getJsonfromAsset(this, mCurrentWeb), WebBean.class);
+            }
+            //viewpager数据
+            pagerItems.clear();
+            pagerItems.addAll(mWebBean.getRank());
+            //recyclerView数据
+            listItems.clear();
+            listItems.add(new MultiData(0, R.layout.item_drawlayout_head, null));
+            for (String string : files) {
+                listItems.add(new MultiData(1, R.layout.item_drawlayout, string));
+            }
+            for (String string : ohterFiles) {
+                listItems.add(new MultiData(1, R.layout.item_drawlayout, string));
+            }
+            initPager();
+            initRecycler();
+        }
     }
 
     private void initPager() {
@@ -297,13 +294,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             List<MultiData> itemRemove = new ArrayList<>();
             for (MultiData multiData : listItems) {
                 String string = "" + multiData.getData();
-                if (string.equals("web_aaooss")) {
-                    itemRemove.add(multiData);
-                } else if (string.equals("web_ddmmcc")) {
-                    itemRemove.add(multiData);
-                } else if (string.equals("web_ssoonn")) {
+                if (string.equals("web_ssoonn")) {
                     itemRemove.add(multiData);
                 } else if (string.equals("web_1manhua")) {
+                    itemRemove.add(multiData);
+                } else if (string.equals("web_hhimm")) {
                     itemRemove.add(multiData);
                 } else if (string.equals("web_manhuafen")) {
                     itemRemove.add(multiData);
@@ -327,6 +322,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ig_gone_web.setText("显示内置");
             }
             adapter.notifyDataSetChanged();
+        } else if (v.getId() == R.id.ig_local_web) {
+            startActivity(new Intent(this, LocalActivity.class));
         }
     }
 

@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/UZMTheme.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.activity.LocalActivity"></activity>
         <activity android:name=".ui.WebIntroActivity" />
         <activity
             android:name=".ui.MainActivity"
@@ -44,8 +45,7 @@
         <activity
             android:name=".ui.activity.ReadActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.WebEditActivity"></activity>
-
+        <activity android:name=".ui.WebEditActivity" />
     </application>
 
 </manifest>
