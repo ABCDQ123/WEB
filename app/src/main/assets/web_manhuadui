@@ -48,7 +48,18 @@
   ],
   "classify": [
     {
-      "title": "全部",
+      "title": "所有更新",
+      "url": "https://m.manhuadui.com/list/riben/update/",
+      "mainEl": "div.page-main div#w1 ul li",
+      "linkEl": "select!a.ImgA@attr!href",
+      "titleEl": "select!a.txtA@text",
+      "imageEl": "select!a.ImgA img@attr!src",
+      "introEl": "select!span.info a@text",
+      "prepareMethod": "",
+      "nextPageMethod": "loadUrl@#https://m.manhuadui.com/list/riben/click/@!position@!/"
+    },
+    {
+      "title": "所有热门",
       "url": "https://m.manhuadui.com/list/riben/click/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
@@ -60,7 +71,7 @@
     },
     {
       "title": "冒险",
-      "url": "https://m.manhuadui.com/list/maoxian-riben/click/",
+      "url": "https://m.manhuadui.com/list/maoxian-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -71,7 +82,7 @@
     },
     {
       "title": "魔法",
-      "url": "https://m.manhuadui.com/list/mofa-riben/click/",
+      "url": "https://m.manhuadui.com/list/mofa-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -82,7 +93,7 @@
     },
     {
       "title": "魔幻",
-      "url": "https://m.manhuadui.com/list/mohuan-riben/click/",
+      "url": "https://m.manhuadui.com/list/mohuan-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -93,7 +104,7 @@
     },
     {
       "title": "搞笑",
-      "url": "https://m.manhuadui.com/list/gaoxiao-riben/click/",
+      "url": "https://m.manhuadui.com/list/gaoxiao-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -104,7 +115,7 @@
     },
     {
       "title": "轻小说",
-      "url": "https://m.manhuadui.com/list/qingxiaoshuo-riben/click/",
+      "url": "https://m.manhuadui.com/list/qingxiaoshuo-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -115,7 +126,7 @@
     },
     {
       "title": "奇幻",
-      "url": "https://m.manhuadui.com/list/qihuan-riben/click/",
+      "url": "https://m.manhuadui.com/list/qihuan-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -126,7 +137,7 @@
     },
     {
       "title": "职场",
-      "url": "https://m.manhuadui.com/list/zhichang-riben/click/",
+      "url": "https://m.manhuadui.com/list/zhichang-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -137,7 +148,7 @@
     },
     {
       "title": "伪娘",
-      "url": "https://m.manhuadui.com/list/weiniang-riben/click/",
+      "url": "https://m.manhuadui.com/list/weiniang-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -148,7 +159,7 @@
     },
     {
       "title": "性转",
-      "url": "https://m.manhuadui.com/list/xingzhuanhuan-riben/click/",
+      "url": "https://m.manhuadui.com/list/xingzhuanhuan-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -159,7 +170,7 @@
     },
     {
       "title": "节操",
-      "url": "https://m.manhuadui.com/list/jiecao-riben/click/",
+      "url": "https://m.manhuadui.com/list/jiecao-riben/update/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
