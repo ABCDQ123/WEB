@@ -16,11 +16,11 @@ webview jsoup</br></br>
 */
 
 {
-  "web": "ss",//网页名称，可随意，取用于展示
-  "rank": [//排行榜，首页展示
+  "web": "ss",//网页
+  "rank": [//首页
     {
       "url": "", //排行榜地址
-      "mainEl": "select!div.main ul a.pic"//获取所有排行榜数据，用于循环获取所有信息
+      "mainEl": "select!div.main ul a.pic"//获取所有排行榜数据
       "linkEl": "attr!href",
       "titleEl": "select!h3@text",
       "imageEl": "select!img@attr!src",
@@ -32,7 +32,7 @@ webview jsoup</br></br>
   "classify": [
   //分类
     {
-      "title": "冒险",
+      "title": "??",
       "url": "http:",
       "mainEl": "select!div.main ul a.pic",
       "linkEl": "attr!href",
@@ -67,7 +67,7 @@ webview jsoup</br></br>
     "episodeSort": "negative",//集数排列正序反序列(从上到下,0到100为正序)positive(正)/negative(反)
     "episodeEl": "attr!href"
   },
-    "read": {//阅读页面
+    "read": {//内容页
       "jointUrl": "left@px?t=",//url拼接, left前面right后面mid中间
       "indexEl": "select!div#img_list span@text",
       "imageUrl": "select!div#img_list img@attr!src",
