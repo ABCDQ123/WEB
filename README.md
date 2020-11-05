@@ -1,7 +1,6 @@
 ## WebView jsoup</br>
-## WebView解析</br></br>
+## WebView</br></br>
 webview jsoup</br></br>
-可根据规则添加可用网站</br></br>
 ## 规则：
 ```/*
 ** 参数说明
