@@ -19,8 +19,8 @@ webview jsoup</br></br>
   "web": "ss",//网页
   "rank": [//首页
     {
-      "url": "", //排行榜地址
-      "mainEl": "select!div.main ul a.pic"//获取所有排行榜数据
+      "url": "", //排行
+      "mainEl": "select!div.main ul a.pic"//排行数据
       "linkEl": "attr!href",
       "titleEl": "select!h3@text",
       "imageEl": "select!img@attr!src",
@@ -43,7 +43,7 @@ webview jsoup</br></br>
     }
   ],
   "search": {
-  //搜索
+  //search
     "url": "http://",
     "mainEl": "select!div.main ul a.pic",
     "linkEl": "attr!href",
@@ -53,7 +53,7 @@ webview jsoup</br></br>
     "nextPageMethod": ""
   },
   "detail": {
-    //详情页数据
+    //详情
     "detailMainEl": "div.main div.clearfix.section3 div.pic",
     "titleEl": "select!h3@text",
     "imageEl": "select!img@attr!src",
@@ -62,13 +62,13 @@ webview jsoup</br></br>
     "popularEl": "select!p@get!2@text",
     "statusEl": "select!p@get!3@text",
     "timeEl": "select!p@get!4@text",
-    //集数
+    //排序数
     "episodeMainEl": "div#list_block p.zlist a",
-    "episodeSort": "negative",//集数排列正序反序列(从上到下,0到100为正序)positive(正)/negative(反)
+    "episodeSort": "negative",//排列正序反序列(从上到下,0到100为正序)positive(正)/negative(反)
     "episodeEl": "attr!href"
   },
-    "read": {//内容页
-      "jointUrl": "left@px?t=",//url拼接, left前面right后面mid中间
+    "read": {//内容
+      "jointUrl": "left@px?t=",//url拼接, left right mid
       "indexEl": "select!div#img_list span@text",
       "imageUrl": "select!div#img_list img@attr!src",
       "introUrl": "select!input#hdTitle2#spt2@src!value",
