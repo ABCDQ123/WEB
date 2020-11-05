@@ -60,7 +60,7 @@
     },
     {
       "title": "所有热门",
-      "url": "https://m.manhuafen.com/list/riben/click/",
+      "url": "https://m.manhuafen.com/list/click/",
       "mainEl": "div.page-main div#w1 ul li",
       "linkEl": "select!a.ImgA@attr!href",
       "titleEl": "select!a.txtA@text",
@@ -68,116 +68,6 @@
       "introEl": "select!span.info a@text",
       "prepareMethod": "",
       "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/riben/click/@!position@!/"
-    },
-    {
-      "title": "冒险",
-      "url": "https://m.manhuafen.com/list/maoxian-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/maoxian-riben/click/@!position@!/"
-    },
-    {
-      "title": "魔法",
-      "url": "https://m.manhuafen.com/list/mofa-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/mofa-riben/click/@!position@!/"
-    },
-    {
-      "title": "魔幻",
-      "url": "https://m.manhuafen.com/list/mohuan-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/mohuan-riben/click/@!position@!/"
-    },
-    {
-      "title": "搞笑",
-      "url": "https://m.manhuafen.com/list/gaoxiao-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/gaoxiao-riben/click/@!position@!/"
-    },
-    {
-      "title": "轻小说",
-      "url": "https://m.manhuafen.com/list/qingxiaoshuo-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/qingxiaoshuo-riben/click/@!position@!/"
-    },
-    {
-      "title": "奇幻",
-      "url": "https://m.manhuafen.com/list/qihuan-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/qihuan-riben/click/@!position@!/"
-    },
-    {
-      "title": "职场",
-      "url": "https://m.manhuafen.com/list/zhichang-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/zhichang-riben/click/@!position@!/"
-    },
-    {
-      "title": "伪娘",
-      "url": "https://m.manhuafen.com/list/weiniang-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/weiniang-riben/click/@!position@!/"
-    },
-    {
-      "title": "性转",
-      "url": "https://m.manhuafen.com/list/xingzhuanhuan-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/xingzhuanhuan-riben/click/@!position@!/"
-    },
-    {
-      "title": "节操",
-      "url": "https://m.manhuafen.com/list/jiecao-riben/update/",
-      "mainEl": "div.page-main div#w1 ul li",
-      "linkEl": "select!a.ImgA@attr!href",
-      "titleEl": "select!a.txtA@text",
-      "imageEl": "select!a.ImgA img@attr!src",
-      "introEl": "select!span.info a@text",
-      "prepareMethod": "",
-      "nextPageMethod": "loadUrl@#https://m.manhuafen.com/list/jiecao-riben/click/@!position@!/"
     }
   ],
   "search": {
